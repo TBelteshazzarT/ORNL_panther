@@ -1,0 +1,8 @@
+prefix=/home/daniel/panther_ws/install
+
+Name: panther_controller
+Description: Description of panther_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

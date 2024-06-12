@@ -1,0 +1,2 @@
+panther_controller
+-DCATKIN_DEVEL_PREFIX=/home/daniel/panther_ws/devel -DCMAKE_INSTALL_PREFIX=/home/daniel/panther_ws/install -G Unix Makefiles
