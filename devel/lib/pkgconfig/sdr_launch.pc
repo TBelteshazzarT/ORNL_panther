@@ -1,0 +1,8 @@
+prefix=/home/daniel/panther_ws/devel
+
+Name: sdr_launch
+Description: Description of sdr_launch
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

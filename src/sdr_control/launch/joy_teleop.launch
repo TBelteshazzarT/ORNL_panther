@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="teleop_config" default="$(find sdr_control)/config/joy_teleop.yaml"/>
+    <arg name="cmd_vel_topic" default="joy_vel"/>
+    <arg name="enable_switch" default="true"/>
+
+    <rosparam file="$(arg teleop_config)" command="load"/>
+    <node pkg="joy_teleop" type="joy_teleop.py" name="joy_teleop">
+        <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    </node>
+
+    <group if="$(arg enable_switch)">
+        <node pkg="sdr_control" type="vel_switch_node" name="vel_switch" output="screen">
+            <param name="first_state" value="joy_vel"/>
+        </node>
+    </group>
+</launch>

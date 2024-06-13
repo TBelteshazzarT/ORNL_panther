@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daniel/panther_ws/src/sdr_control/include/sdr_control/dimensionInterface.h
+stdlib.h
+-
+sdr_control/serial_interface.hpp
+-
+
+/home/daniel/panther_ws/src/sdr_control/include/sdr_control/serial_interface.hpp
+string
+-
+memory
+-
+chrono
+-
+asio.hpp
+-
+
+/home/daniel/panther_ws/src/sdr_control/src/dimension/dimensionInterface.cpp
+sdr_control/dimensionInterface.h
+-
+
+/home/daniel/panther_ws/src/sdr_control/src/serial_interface.cpp
+sdr_control/serial_interface.hpp
+-
+iostream
+-
+

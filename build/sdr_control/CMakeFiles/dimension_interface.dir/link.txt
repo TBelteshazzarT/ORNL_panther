@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libdimension_interface.so -o /home/daniel/panther_ws/devel/lib/libdimension_interface.so CMakeFiles/dimension_interface.dir/src/dimension/dimensionInterface.cpp.o CMakeFiles/dimension_interface.dir/src/serial_interface.cpp.o 

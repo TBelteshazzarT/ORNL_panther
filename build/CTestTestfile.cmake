@@ -6,3 +6,6 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("panther_controller")
+subdirs("sdr_frame")
+subdirs("sdr_launch")
+subdirs("sdr_control")

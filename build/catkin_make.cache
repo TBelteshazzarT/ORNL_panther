@@ -1,2 +1,2 @@
-panther_controller
+panther_controller:sdr_control:sdr_frame:sdr_launch
 -DCATKIN_DEVEL_PREFIX=/home/daniel/panther_ws/devel -DCMAKE_INSTALL_PREFIX=/home/daniel/panther_ws/install -G Unix Makefiles

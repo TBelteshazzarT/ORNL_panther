@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="port_name" default="/dev/ttyTHS0"/>
+	<arg name="address" default="128"/>
+	<arg name="right_joint_name" default="mr_wheel_joint"/>
+	<arg name="left_joint_name" default="ml_wheel_joint"/>
+
+	<node pkg="sdr_control" type="roboclaw_driver_node" name="roboclaw_driver" output="screen">
+		<param name="port" value="$(arg port_name)"/>
+		<param name="address" value="$(arg address)"/>
+		<param name="baud_rate" value="38400"/>
+		<param name="right_joint_name" value="$(arg right_joint_name)"/>
+		<param name="left_joint_name" value="$(arg left_joint_name)"/>
+		<param name="timeout" value="1.0"/>
+		<param name="tire_diameter" value="0.3302"/>
+		<param name="counts_per_radian" value="-21000"/>
+		<param name="pose_covariance" value="0.05"/>
+		<param name="twist_covariance" value="0.01"/>
+		<!-- Max speed of each motor in quadrature pulses per second -->
+		<param name="max_qpps" value="90000"/>
+		<!-- Encoder pulses per revolution -->
+		<param name="ppr" value="72000"/>
+		<!-- Acceleration -->
+		<param name="qpps_accel" value="120000"/>
+		<!-- Closed loop error detection -->
+		<param name="error_limit" value="60"/>
+		<param name="error_timeout" value="1.5"/>
+		<!-- Current control -->
+		<param name="max_current" value="120"/>
+		<param name="warn_limit" value="60"/>
+	</node>
+</launch>

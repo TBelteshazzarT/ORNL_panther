@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Sabertooth Driver -->
+    <node pkg="sdr_control" type="sabertooth_driver_node" name="sabertooth_driver" output="screen">
+        <param name="port" value="/dev/sabertooth_usb"/>
+        <param name="baud_rate" value="9600"/>
+        <!-- Address of the first controller -->
+        <param name="address" value="128"/>
+        <!-- Address of the second controller (usage depends on robot type) -->
+        <param name="address_2" value="129"/>
+        <!-- robot_type: DIFF SKID_DAISYCHAIN MEC_DAISYCHAIN -->
+        <param name="robot_type" value="DIFF"/>
+        <!-- Multipliers to convert command messages into Sabertooth commands -->
+        <param name="drive_factor" value="126"/>
+        <param name="turn_factor" value="126"/>
+        <param name="strafe_factor" value="126"/>
+        <!-- Subscriber timeout failsafe -->
+        <param name="timeout" value="1.0"/>
+    </node>
+</launch>

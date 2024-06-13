@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- SyRen Aux Node -->
+    <node pkg="sdr_control" type="syren_aux_node" name="syren_aux" output="screen">
+        <param name="port" value="/dev/syren_usb"/>
+        <param name="baud_rate" value="9600"/>
+        <param name="address" value="128"/>
+        <!-- Factor multiplied by the input command -->
+        <param name="cmd_factor" value="126"/>
+        <param name="timeout" value="1.0"/>
+    </node>
+</launch>

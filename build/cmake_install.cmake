@@ -132,6 +132,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/daniel/panther_ws/build/gtest/cmake_install.cmake")
   include("/home/daniel/panther_ws/build/panther_controller/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/sdr_frame/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/sdr_launch/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/sdr_control/cmake_install.cmake")
 
 endif()
 

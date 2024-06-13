@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+	<!--RoboteQ Driver-->
+	<node pkg="sdr_control" type="roboteq_driver_node" name="roboteq_driver" output="screen">
+		<param name="port" value="/dev/roboteq_mdc"/>
+		<!-- robot_type: DIFF SKID_CAN MEC_CAN -->
+		<param name="robot_type" value="DIFF"/>
+		<!-- Makes ROS or the RoboteQ calculate motor mixing -->
+		<param name="ros_mixing" value="true"/>
+		<!-- Disables/Enables all encoder related functionality-->
+		<param name="encoders_enabled" value="true"/>
+		<!-- Disables/Enables odom calculations -->
+		<param name="publish_odom" value="true"/>
+		<!-- Encoder calibration values -->
+		<param name="counts_per_radian" value="35294"/>
+		<param name="counts_per_meter" value="160606"/>
+		<!-- Multipliers to convert command velocites into RoboteQ !G commands -->
+		<!-- Only used in open loop mode (encoders disabled) -->
+		<param name="drive_factor" value="500"/>
+		<param name="turn_factor" value="136"/>
+		<param name="strafe_factor" value="1000"/>
+		<!-- Parameters used to convert command velocities into RoboteQ !S commands -->
+		<!-- Only used in closed loop speed mode (encoders enabled) -->
+		<param name="max_rpm" value="3000"/>
+		<param name="gear_ratio" value="0.025"/>
+		<param name="wheel_diameter" value="0.1524"/>
+		<param name="wheel_separation" value="0.438"/>
+		<param name="wheel_separation_multiplier" value="1.0"/>
+		<param name="accel_lin_x" value="1.5"/>
+		<param name="accel_lin_y" value="0.0"/>
+		<param name="accel_ang_z" value="5.0"/>
+		<param name="decel_lin_x" value="1.5"/>
+		<param name="decel_lin_y" value="0.0"/>
+		<param name="decel_ang_z" value="5.0"/>
+		<!-- Low voltage value -->
+		<param name="low_batt" value="23.1"/>
+		<!-- Subscriber timeout failsafe -->
+		<param name="timeout" value="0.5"/>
+	</node>
+</launch>

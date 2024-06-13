@@ -1,0 +1,8 @@
+prefix=/home/daniel/panther_ws/devel
+
+Name: sdr_frame
+Description: Description of sdr_frame
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

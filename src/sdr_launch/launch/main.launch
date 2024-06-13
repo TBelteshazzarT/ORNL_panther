@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Gamepad driver -->
+	<node pkg="joy" type="joy_node" name="joy">
+		<param name="dev" value="/dev/input/js0"/>
+		<param name="autorepeat_rate" value="20"/>
+	</node>
+    <!-- Frame bringup -->
+    <include file="$(find sdr_frame)/launch/robot_description.launch"/>
+    <!-- Joy teleop -->
+    <include file="$(find sdr_control)/launch/joy_teleop.launch"/>
+    <!-- Control bringup -->
+    <include file="$(find sdr_control)/launch/roboclaw_driver.launch"/>
+
+</launch>
