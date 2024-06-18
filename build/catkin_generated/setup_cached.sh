@@ -7,4 +7,5 @@
 # new environment variables
 
 # modified environment variables
+export PATH="/home/daniel/panther_ws/devel/bin:$PATH"
 export PWD='/home/daniel/panther_ws/build'

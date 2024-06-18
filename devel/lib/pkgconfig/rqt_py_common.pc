@@ -1,0 +1,8 @@
+prefix=/home/daniel/panther_ws/devel
+
+Name: rqt_py_common
+Description: Description of rqt_py_common
+Version: 0.5.3
+Cflags: -I/home/daniel/panther_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

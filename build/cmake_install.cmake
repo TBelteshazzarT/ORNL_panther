@@ -131,10 +131,18 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/daniel/panther_ws/build/gtest/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rqt/rqt/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rqt_graph/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rqt/rqt_gui/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rqt/rqt_py_common/cmake_install.cmake")
   include("/home/daniel/panther_ws/build/panther_controller/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rqt/rqt_gui_cpp/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rqt/rqt_gui_py/cmake_install.cmake")
   include("/home/daniel/panther_ws/build/sdr_frame/cmake_install.cmake")
   include("/home/daniel/panther_ws/build/sdr_launch/cmake_install.cmake")
   include("/home/daniel/panther_ws/build/sdr_control/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/rviz/cmake_install.cmake")
+  include("/home/daniel/panther_ws/build/urg_node-melodic-devel/cmake_install.cmake")
 
 endif()
 
