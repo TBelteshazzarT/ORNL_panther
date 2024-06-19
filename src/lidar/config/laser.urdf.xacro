@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot>
+
+  <link name="hokuyo_link">
+    <visual>
+      <origin xyz="0 0 0.003"/>
+      <geometry>
+        <box size="0.079 0.05 0.006"/>
+      </geometry>
+      <material name="support">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.041"/>
+      <geometry>
+        <box size="0.05 0.05 0.07"/>
+      </geometry>
+      <material name="lidar">
+        <color rgba="1.0 0.0 0.0 0.7"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.003"/>
+      <geometry>
+        <box size="0.079 0.05 0.006"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 0.041"/>
+      <geometry>
+        <box size="0.05 0.05 0.07"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="hokuyo_joint" type="fixed">
+    <origin xyz="0.0775 0 0"/>
+    <parent link="base_link"/>
+    <child link="hokuyo_link"/>
+  </joint>
+
+  <link name="laser_frame"/>
+
+  <joint name="laser_joint" type="fixed">
+    <origin xyz="0 0 0.064"/>
+    <parent link="hokuyo_link"/>
+    <child link="laser_frame"/>
+  </joint>
+
+</robot>
