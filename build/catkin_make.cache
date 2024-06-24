@@ -1,2 +1,0 @@
-ipcamera_driver:panther_controller:rqt/rqt:rqt/rqt_gui:rqt/rqt_gui_cpp:rqt/rqt_gui_py:rqt/rqt_py_common:rqt_graph:rviz:sdr_control:sdr_frame:sdr_launch:urg_node-melodic-devel
--DCATKIN_DEVEL_PREFIX=/home/daniel/panther_ws/devel -DCMAKE_INSTALL_PREFIX=/home/daniel/panther_ws/install -G Unix Makefiles
