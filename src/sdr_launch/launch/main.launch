@@ -12,5 +12,15 @@
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>
     <!-- Control bringup -->
     <include file="$(find sdr_control)/launch/roboclaw_driver.launch"/>
+    <!-- Lidar -->
+    <include file="$(find lidar)/lidar_launch/laser.launch"/>
 
+    <!-- Slam Launch -->
+    <node pkg="gmapping" type= "slam_gmapping" name="gmapping">
+    </node>
+
+    <!-- RViz Launch -->
+    <node pkg="rviz" type= "rviz" name="rviz">
+    </node>
+    
 </launch>
