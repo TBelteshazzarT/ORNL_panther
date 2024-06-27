@@ -26,7 +26,9 @@
     <include file="$(find panther_navigation)/launch/navigation.launch"/>
 
     <!-- RViz Launch -->
-    <node pkg="rviz" type= "rviz" name="rviz">
-    </node>
+    <node pkg="rviz" type= "rviz" name="rviz" args="-d $(find lidar)/config/laser_scan.rviz" />
+    
+    
+    
     
 </launch>
