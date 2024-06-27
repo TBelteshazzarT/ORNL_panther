@@ -12,12 +12,18 @@
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>
     <!-- Control bringup -->
     <include file="$(find sdr_control)/launch/roboclaw_driver.launch"/>
+    
     <!-- Lidar -->
     <include file="$(find lidar)/lidar_launch/laser.launch"/>
 
+    <!-- Odom Launch -->
+    <include file="$(find panther_navigation)/launch/odometry.launch"/>
+    
     <!-- Slam Launch -->
-    <node pkg="gmapping" type= "slam_gmapping" name="gmapping">
-    </node>
+    <include file="$(find panther_navigation)/launch/gmapping.launch"/>
+    
+    <!-- Nav Launch -->
+    <include file="$(find panther_navigation)/launch/navigation.launch"/>
 
     <!-- RViz Launch -->
     <node pkg="rviz" type= "rviz" name="rviz">
