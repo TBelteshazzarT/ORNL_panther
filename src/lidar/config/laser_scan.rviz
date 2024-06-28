@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /LaserScan1
+        - /LaserScan1/Status1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -26,7 +27,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -62,14 +63,14 @@ Visualization Manager:
       Channel Name: intensity
       Class: rviz/LaserScan
       Color: 255; 255; 255
-      Color Transformer: ""
+      Color Transformer: Intensity
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
       Name: LaserScan
-      Position Transformer: ""
+      Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
@@ -84,7 +85,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: laser
+    Fixed Frame: laser_frame
     Frame Rate: 30
   Name: root
   Tools:
@@ -145,4 +146,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 60
-  Y: 23
+  Y: 0
