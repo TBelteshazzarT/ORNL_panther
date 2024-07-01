@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ornl-rover/panther_ws/devel/.private/panther_navigation/setup.sh

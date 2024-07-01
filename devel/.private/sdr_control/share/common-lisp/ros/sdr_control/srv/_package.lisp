@@ -1,0 +1,10 @@
+(cl:defpackage sdr_control-srv
+  (:use )
+  (:export
+   "SWITCHVELOCITY"
+   "<SWITCHVELOCITY-REQUEST>"
+   "SWITCHVELOCITY-REQUEST"
+   "<SWITCHVELOCITY-RESPONSE>"
+   "SWITCHVELOCITY-RESPONSE"
+  ))
+

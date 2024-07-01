@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ornl-rover/panther_ws/devel/.private/sdr_control/setup.sh

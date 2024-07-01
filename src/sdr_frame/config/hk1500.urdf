@@ -1,16 +1,181 @@
 <?xml version="1.0"?>
 <robot name="hk_1500" xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<!-- Link setup -->	
-	<link name="fr_wheel_link"/>
-	<link name="mr_wheel_link"/>
-	<link name="rr_wheel_link"/>
-	<link name="fl_wheel_link"/>
-	<link name="ml_wheel_link"/>	
-	<link name="rl_wheel_link"/>	
-	<link name="base_link"/>
-	
-	
+	<!-- Link setup -->
+	<link name="fr_wheel_link">
+		<inertial>
+			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+			<mass value="9"/>
+			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 .054"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+			<material name="wheel">
+				<color rgba="0 0 0 1.0" />
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 .054" rpy="1.5708 0 0"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="mr_wheel_link">
+		<inertial>
+			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+			<mass value="9"/>
+			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0.0 0 0.054"/>
+			<geometry> 
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+			<material name="wheel">
+				<color rgba="0 0 0 1.0" />
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0.0 0 0.054" rpy="1.5708 0 0"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="rr_wheel_link">
+		<inertial>
+			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+			<mass value="9"/>
+			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0.054"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+			<material name="wheel">
+				<color rgba="0 0 0 1.0" />
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0.054" rpy="1.5708 0 0"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="fl_wheel_link">
+		<inertial>
+			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+			<mass value="9"/>
+			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0.054"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+			<material name="wheel">
+				<color rgba="0 0 0 1.0" />
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0.054" rpy="1.5708 0 0"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="ml_wheel_link">
+		<inertial>
+			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+			<mass value="9"/>
+			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0.054"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+			<material name="wheel">
+				<color rgba="0 0 0 1.0" />
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0.054" rpy="1.5708 0 0"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="rl_wheel_link"> 
+		<inertial>
+			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+			<mass value="9"/>
+			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0.054"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+			<material name="wheel">
+				<color rgba="0 0 0 1.0" />
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0.054" rpy="1.5708 0 0"/>
+			<geometry>
+				<cylinder radius="0.15" length="0.108"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="base_link">
+		<inertial>
+			<origin xyz="0 0 0.15" rpy="0 0 0"/>
+			<mass value="83.31"/>
+			<inertia ixx="5.60" ixy="-0.11" ixz="0" iyy="9.65" iyz="0" izz="10.51" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0.15"/>
+			<geometry>
+				<box size = "0.914 0.53975 0.312"/>
+			</geometry>
+			<material name="hk1500">
+				<color rgba="0.57 0.58 0.57 1.0" /> 
+			</material>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0.15"/>
+			<geometry> 
+				<box size = "0.914 0.53975 0.312"/>
+			</geometry>
+		</collision> 
+	</link>
 	<!-- Joint defines -->
 	<joint name="fr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
@@ -18,7 +183,6 @@
 		<axis xyz="0 0 1"/>
 		<origin xyz="0.356108 -0.269875 0.0" rpy="1.5708 0.0 0.0"/>
 	</joint>
-	
 	<joint name="fl_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="fl_wheel_link"/>
@@ -26,27 +190,26 @@
 		<origin xyz="0.356108 0.269875 0.0" rpy="-1.5708 0.0 0.0"/>
 	</joint>
 
-	<joint name="mr_wheel_joint" type="continuous">
+	<joint name="mr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="mr_wheel_link"/>
 		<axis xyz="0 0 1"/>
 		<origin xyz="0.0 -0.269875 0.0" rpy="1.5708 0.0 0.0"/>
 	</joint>
-	
-	<joint name="ml_wheel_joint" type="continuous">
+
+	<joint name="ml_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="ml_wheel_link"/>
 		<axis xyz="0 0 1"/>
 		<origin xyz="0.0 0.269875 0.0" rpy="-1.5708 0.0 0.0"/>
 	</joint>
-	
+
 	<joint name="rr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="rr_wheel_link"/>
 		<axis xyz="0 0 1"/>
 		<origin xyz="-0.356108 -0.269875 0.0" rpy="1.5708 0.0 0.0"/>
 	</joint>
-	
 	<joint name="rl_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="rl_wheel_link"/>

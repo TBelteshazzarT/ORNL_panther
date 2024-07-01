@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ornl-rover/panther_ws/src/sdr_control/include/sdr_control/RoboClaw.h
+iostream
+-
+stdarg.h
+-
+stdlib.h
+-
+inttypes.h
+-
+sdr_control/serial_interface.hpp
+-
+
+/home/ornl-rover/panther_ws/src/sdr_control/include/sdr_control/serial_interface.hpp
+string
+-
+memory
+-
+chrono
+-
+asio.hpp
+-
+
+/home/ornl-rover/panther_ws/src/sdr_control/src/roboclaw/RoboClaw.cpp
+sdr_control/RoboClaw.h
+-
+
+/home/ornl-rover/panther_ws/src/sdr_control/src/serial_interface.cpp
+sdr_control/serial_interface.hpp
+-
+iostream
+-
+

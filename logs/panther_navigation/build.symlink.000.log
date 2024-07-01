@@ -1,0 +1,3 @@
+Symlinking /home/ornl-rover/panther_ws/devel/lib/pkgconfig/panther_navigation.pc
+Symlinking /home/ornl-rover/panther_ws/devel/share/panther_navigation/cmake/panther_navigationConfig.cmake
+Symlinking /home/ornl-rover/panther_ws/devel/share/panther_navigation/cmake/panther_navigationConfig-version.cmake
