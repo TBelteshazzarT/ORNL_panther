@@ -11,6 +11,8 @@
 #include <diagnostic_msgs/DiagnosticStatus.h>
 #include <tf/transform_datatypes.h>
 #include <sdr_control/RoboClaw.h>
+#include <tf/transform_broadcaster.h>
+
 
 const double pi = 3.14159265;
 const double two_pi = 6.283185307;
@@ -66,7 +68,7 @@ void diagnosticCallback(const diagnostic_msgs::DiagnosticStatus::ConstPtr& input
 }
 
 // ROS Publishers
-void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pose, float dt, PARAMS p, ros::Time t)
+void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pose, float dt, PARAMS p, ros::Time t, tf::TransformBroadcaster odom_broadcaster)
 {
 	nav_msgs::Odometry odom;
 	int i = 0;
@@ -101,8 +103,25 @@ void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pos
 		odom.pose.covariance[i] = p.pose_covariance;
 		odom.twist.covariance[i] = p.twist_covariance;
 	}
-	// Publish
+	// Publish to topic
 	odom_pub.publish(odom);
+	
+	
+	// Set TF header
+	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw (pose[2]) ;
+	geometry_msgs::TransformStamped odom_trans;
+	odom_trans.header.stamp = t;
+	odom_trans.header.frame_id = "odom";
+	odom_trans.child_frame_id = "base_link";
+	// Set TF position
+	odom_trans.transform.translation.x = pose[0];
+	odom_trans.transform.translation.y = pose[1];
+	odom_trans.transform.translation.z = 0;
+	odom_trans.transform.rotation = odom_quat;
+	
+	// Publish to TF
+	odom_broadcaster.sendTransform(odom_trans);
+	ROS_WARN("odom broadcast sent?");
 }
 
 void publish_joints(ros::Publisher joints_pub, ENC_PULSE<int> qpps, ENC_PULSE<float>& rot, double dt, PARAMS p, ros::Time t)
@@ -300,6 +319,9 @@ int main(int argc, char** argv)
 	jointPub = n.advertise<sensor_msgs::JointState>("/joint_states", 10);
 	battPub = n.advertise<sensor_msgs::BatteryState>("/battery", 10);
 	currentPub = n.advertise<geometry_msgs::Vector3Stamped>("motor_current", 10);
+	// TF Broadcast
+	tf::TransformBroadcaster odom_broadcaster;
+	
 	// ROS Params
 	PARAMS p = read_parameters(n);
 	// RoboClaw init
@@ -314,10 +336,43 @@ int main(int argc, char** argv)
 	ros::Time prev_stamp = ros::Time::now();
 	ros::Time time_current = ros::Time::now();
 	
+	//TF initialize
+	// Set TF header
+	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw (pose[2]) ;
+	geometry_msgs::TransformStamped odom_trans;
+	odom_trans.header.stamp = ros::Time::now();
+	odom_trans.header.frame_id = "odom";
+	odom_trans.child_frame_id = "base_link";
+	// Set TF position
+	odom_trans.transform.translation.x = pose[0];
+	odom_trans.transform.translation.y = pose[1];
+	odom_trans.transform.translation.z = 0;
+	odom_trans.transform.rotation = odom_quat;
+	
+	// Publish to TF
+	odom_broadcaster.sendTransform(odom_trans);
+	ROS_WARN("odom broadcast initialized?");
+	
 	// Main Loop
 	while(ros::ok())
 	{		
 		ros::spinOnce();
+		//TF initialize
+		// Set TF header
+		geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw (pose[2]) ;
+		geometry_msgs::TransformStamped odom_trans;
+		odom_trans.header.stamp = ros::Time::now();
+		odom_trans.header.frame_id = "odom";
+		odom_trans.child_frame_id = "base_link";
+		// Set TF position
+		odom_trans.transform.translation.x = pose[0];
+		odom_trans.transform.translation.y = pose[1];
+		odom_trans.transform.translation.z = 0;
+		odom_trans.transform.rotation = odom_quat;
+	
+		// Publish to TF
+		odom_broadcaster.sendTransform(odom_trans);
+		ROS_WARN("odom broadcast initialized?");
 		
 		dt = (ros::Time::now() - prev_stamp).toSec();
 		prev_stamp = ros::Time::now();
@@ -327,7 +382,8 @@ int main(int argc, char** argv)
 		if(poll_encoders(rc, qpps_current, p, time_current))
 		{
 			publish_joints(jointPub, qpps_current, wheel_rot, dt, p, time_current);
-			publish_odometry(odomPub, qpps_current, pose, dt, p, time_current);
+			publish_odometry(odomPub, qpps_current, pose, dt, p, time_current, odom_broadcaster);
+		
 		}
 		else { ROS_WARN("Invalid encoder read"); }
 		

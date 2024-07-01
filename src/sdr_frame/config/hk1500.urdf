@@ -54,7 +54,7 @@
 		<origin xyz="-0.356108 0.269875 0.0" rpy="-1.5708 0.0 0.0"/>
 	</joint>
 	
-	<!--xacro:include filename="/panther_ws/src/lidar/config/laser.urdf.xacro"/-->
+	<!-- Lidar -->
 	<link name="hokuyo_link"> 
     	<visual>
       		<origin xyz="0 0 0.003"/>
