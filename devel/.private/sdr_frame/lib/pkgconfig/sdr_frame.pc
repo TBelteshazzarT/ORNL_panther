@@ -1,8 +1,0 @@
-prefix=/home/ornl-rover/panther_ws/devel/.private/sdr_frame
-
-Name: sdr_frame
-Description: Description of sdr_frame
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

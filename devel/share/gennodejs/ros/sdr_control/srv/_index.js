@@ -1,1 +1,0 @@
-/home/ornl-rover/panther_ws/devel/.private/sdr_control/share/gennodejs/ros/sdr_control/srv/_index.js

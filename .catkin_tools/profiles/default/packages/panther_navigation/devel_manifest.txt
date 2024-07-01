@@ -1,5 +1,0 @@
-panther_navigation
-/home/ornl-rover/panther_ws/devel/.private/panther_navigation/cmake.lock /home/ornl-rover/panther_ws/devel/./cmake.lock
-/home/ornl-rover/panther_ws/devel/.private/panther_navigation/lib/pkgconfig/panther_navigation.pc /home/ornl-rover/panther_ws/devel/lib/pkgconfig/panther_navigation.pc
-/home/ornl-rover/panther_ws/devel/.private/panther_navigation/share/panther_navigation/cmake/panther_navigationConfig.cmake /home/ornl-rover/panther_ws/devel/share/panther_navigation/cmake/panther_navigationConfig.cmake
-/home/ornl-rover/panther_ws/devel/.private/panther_navigation/share/panther_navigation/cmake/panther_navigationConfig-version.cmake /home/ornl-rover/panther_ws/devel/share/panther_navigation/cmake/panther_navigationConfig-version.cmake

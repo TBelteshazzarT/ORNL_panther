@@ -1,8 +1,0 @@
-prefix=/home/ornl-rover/panther_ws/install
-
-Name: panther_navigation
-Description: Description of panther_navigation
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

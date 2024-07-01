@@ -1,8 +1,0 @@
-prefix=/home/ornl-rover/panther_ws/devel/.private/sdr_control
-
-Name: sdr_control
-Description: Description of sdr_control
-Version: 0.0.0
-Cflags: -I/home/ornl-rover/panther_ws/devel/.private/sdr_control/include -I/home/ornl-rover/panther_ws/src/sdr_control/include -I/usr/include
-Libs: -L${prefix}/lib -lsdr_control /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-Requires: nav_msgs roscpp sensor_msgs tf
