@@ -336,22 +336,6 @@ int main(int argc, char** argv)
 	ros::Time prev_stamp = ros::Time::now();
 	ros::Time time_current = ros::Time::now();
 	
-	//TF initialize
-	// Set TF header
-	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw (pose[2]) ;
-	geometry_msgs::TransformStamped odom_trans;
-	odom_trans.header.stamp = ros::Time::now();
-	odom_trans.header.frame_id = "odom";
-	odom_trans.child_frame_id = "base_link";
-	// Set TF position
-	odom_trans.transform.translation.x = pose[0];
-	odom_trans.transform.translation.y = pose[1];
-	odom_trans.transform.translation.z = 0;
-	odom_trans.transform.rotation = odom_quat;
-	
-	// Publish to TF
-	odom_broadcaster.sendTransform(odom_trans);
-	ROS_WARN("odom broadcast initialized?");
 	
 	// Main Loop
 	while(ros::ok())
