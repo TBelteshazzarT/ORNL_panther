@@ -105,23 +105,6 @@ void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pos
 	}
 	// Publish to topic
 	odom_pub.publish(odom);
-	
-	
-	// Set TF header
-	geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw (pose[2]) ;
-	geometry_msgs::TransformStamped odom_trans;
-	odom_trans.header.stamp = t;
-	odom_trans.header.frame_id = "odom";
-	odom_trans.child_frame_id = "base_link";
-	// Set TF position
-	odom_trans.transform.translation.x = pose[0];
-	odom_trans.transform.translation.y = pose[1];
-	odom_trans.transform.translation.z = 0;
-	odom_trans.transform.rotation = odom_quat;
-	
-	// Publish to TF
-	odom_broadcaster.sendTransform(odom_trans);
-	ROS_WARN("odom broadcast sent?");
 }
 
 void publish_joints(ros::Publisher joints_pub, ENC_PULSE<int> qpps, ENC_PULSE<float>& rot, double dt, PARAMS p, ros::Time t)
