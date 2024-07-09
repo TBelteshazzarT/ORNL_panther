@@ -154,13 +154,13 @@
 
 	<link name="base_link">
 		<inertial>
-			<origin xyz="0 0 0.15" rpy="0 0 0"/>
+			<origin xyz="0 0 0.287" rpy="0 0 0"/>
 			<mass value="83.31"/>
 			<inertia ixx="5.60" ixy="-0.11" ixz="0" iyy="9.65" iyz="0" izz="10.51" />
 		</inertial>
 
 		<visual>
-			<origin xyz="0 0 0.15"/>
+			<origin xyz="0 0 0.287"/>
 			<geometry>
 				<box size = "0.914 0.53975 0.312"/>
 			</geometry>
@@ -170,7 +170,7 @@
 		</visual>
 
 		<collision>
-			<origin xyz="0 0 0.15"/>
+			<origin xyz="0 0 0.287"/>
 			<geometry> 
 				<box size = "0.914 0.53975 0.312"/>
 			</geometry>
@@ -181,40 +181,40 @@
 		<parent link="base_link"/>
 		<child link="fr_wheel_link"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="0.356108 -0.269875 0.0" rpy="1.5708 0.0 0.0"/>
+		<origin xyz="0.356108 -0.269875 0.137" rpy="1.5708 0.0 0.0"/>
 	</joint>
 	<joint name="fl_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="fl_wheel_link"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="0.356108 0.269875 0.0" rpy="-1.5708 0.0 0.0"/>
+		<origin xyz="0.356108 0.269875 0.137" rpy="-1.5708 0.0 0.0"/>
 	</joint>
 
 	<joint name="mr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="mr_wheel_link"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="0.0 -0.269875 0.0" rpy="1.5708 0.0 0.0"/>
+		<origin xyz="0.0 -0.269875 0.137" rpy="1.5708 0.0 0.0"/>
 	</joint>
 
 	<joint name="ml_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="ml_wheel_link"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="0.0 0.269875 0.0" rpy="-1.5708 0.0 0.0"/>
+		<origin xyz="0.0 0.269875 0.137" rpy="-1.5708 0.0 0.0"/>
 	</joint>
 
 	<joint name="rr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="rr_wheel_link"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="-0.356108 -0.269875 0.0" rpy="1.5708 0.0 0.0"/>
+		<origin xyz="-0.356108 -0.269875 0.137" rpy="1.5708 0.0 0.0"/>
 	</joint>
 	<joint name="rl_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="rl_wheel_link"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="-0.356108 0.269875 0.0" rpy="-1.5708 0.0 0.0"/>
+		<origin xyz="-0.356108 0.269875 0.137" rpy="-1.5708 0.0 0.0"/>
 	</joint>
 	
 	<!-- Lidar -->
@@ -252,7 +252,7 @@
   	</link>
 
   	<joint name="hokuyo_joint" type="fixed">
-    		<origin xyz="0.356108 0 0.312"/>
+    		<origin xyz="0.356108 0 0.449"/>
     		<parent link="base_link"/>
     		<child link="hokuyo_link"/>
   	</joint>
@@ -260,12 +260,36 @@
   	<link name="laser_frame"/>
 
   	<joint name="laser_joint" type="fixed">
-    		<origin xyz="0 0 0.376"/>
+    		<origin xyz="0 0 0.513"/>
     		<parent link="hokuyo_link"/>
     		<child link="laser_frame"/>
   	</joint>
   	
-  	
+  	<!-- IMU -->
+	<link name="imu_link"> 
+    	<visual>
+      		<origin xyz="0 0 0.003"/>
+      		<geometry>
+        		<box size="0.079 0.05 0.006"/>
+      		</geometry>
+      		<material name="imu">
+        		<color rgba="0.5 0.5 0 1.0"/>
+      		</material>
+    	</visual>
+		<collision>
+      		<origin xyz="0 0 0.003"/>
+      		<geometry>
+        		<box size="0.079 0.05 0.006"/>
+      		</geometry>
+    	</collision>
+	</link>
+
+	<joint name="imu_joint" type="fixed">
+    		<origin xyz="0 0 0.449"/>
+    		<parent link="base_link"/>
+    		<child link="imu_link"/>
+  	</joint>
+	
   	
   <!-- Gazebo -->
   
@@ -421,6 +445,27 @@
     </sensor>
   </gazebo>
 
+	<!-- IMU -->
+	<gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
 
 
 </robot>

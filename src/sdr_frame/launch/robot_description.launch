@@ -3,7 +3,7 @@
 	
 	<arg name="file" default="hk1500"/>
 	
-	<param name="robot_description" textfile="src/panther_description/urdf/hk1500.urdf"/>
+	<param name="robot_description" textfile="$(find panther_description)/urdf/hk1500.urdf"/>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 </launch>
