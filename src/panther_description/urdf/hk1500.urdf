@@ -176,7 +176,15 @@
 			</geometry>
 		</collision> 
 	</link>
+	<link name="base_footprint">
+	</link>
+	
 	<!-- Joint defines -->
+        <joint name="base_joint" type="fixed">
+          <origin xyz="0 0 0.19783" rpy="0 0 0"/>
+          <parent link="base_footprint"/>
+          <child link="base_link"/>
+        </joint>
 	<joint name="fr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="fr_wheel_link"/>
@@ -296,63 +304,10 @@
   <!-- ros_control plugin -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/panther</robotNamespace>
+      <robotNamespace></robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
-  
-  <gazebo>
-  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-
-    <!-- Plugin update rate in Hz -->
-    <updateRate>100.0</updateRate>
-
-    <!-- Name of left joint, defaults to `left_joint` -->
-    <leftJoint>base_link_left_wheel_joint</leftJoint>
-
-    <!-- Name of right joint, defaults to `right_joint` -->
-    <rightJoint>base_link_right_wheel_joint</rightJoint>
-
-    <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
-    <wheelSeparation>0.53975</wheelSeparation>
-
-    <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
-    <wheelDiameter>0.3</wheelDiameter>
-
-    <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-    <wheelAcceleration>1.0</wheelAcceleration>
-
-    <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-    <wheelTorque>20</wheelTorque>
-
-    <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
-    <commandTopic>cmd_vel</commandTopic>
-
-    <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
-    <odometryTopic>odom</odometryTopic>
-
-    <!-- Odometry frame, defaults to `odom` -->
-    <odometryFrame>odom</odometryFrame>
-
-    <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-    <robotBaseFrame>base_link</robotBaseFrame>
-
-    <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-    <odometrySource>1</odometrySource>
-
-    <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-    <publishWheelTF>true</publishWheelTF>
-
-    <!-- Set to true to publish transforms for the odometry, defaults to true -->
-    <publishOdom>true</publishOdom>
-
-    <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-    <publishWheelJointState>true</publishWheelJointState>
-
-    <!-- Set to true to swap right and left wheels, defaults to true -->
-    <legacyMode>false</legacyMode>
-  </plugin>
-</gazebo> 
 
   <!-- Base -->
   <gazebo reference="base_link">
@@ -408,6 +363,30 @@
     <material>Gazebo/Red</material>
   </gazebo>-->
 
+<!-- Skid Steer Plugin -->
+  <gazebo>
+    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+      <updateRate>40</updateRate>
+      <robotNamespace></robotNamespace>
+      <leftJoint>fl_wheel_joint</leftJoint>
+      <rightJoint>fr_wheel_joint</rightJoint>
+      <leftJoint>rl_wheel_joint</leftJoint>
+      <rightJoint>rr_wheel_joint</rightJoint>
+      <wheelSeparation>0.53975</wheelSeparation>
+      <wheelDiameter>0.3</wheelDiameter>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <torque>20</torque>
+      <topicName>cmd_vel</topicName>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <covariance_x>0.0001</covariance_x>
+      <covariance_y>0.0001</covariance_y>
+      <covariance_yaw>0.01</covariance_yaw>
+      <broadcastTF>false</broadcastTF> 
+    </plugin>
+  </gazebo>
+
   <!-- Lidar -->
   <gazebo reference="hokuyo_link">
     <sensor type="ray" name="head_hokuyo_sensor">
@@ -452,7 +431,7 @@
       <always_on>true</always_on>
       <update_rate>100</update_rate>
       <visualize>true</visualize>
-      <topic>__default_topic__</topic>
+      <topic>/imu/data_raw</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
         <topicName>imu</topicName>
         <bodyName>imu_link</bodyName>

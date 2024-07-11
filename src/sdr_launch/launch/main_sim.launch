@@ -12,8 +12,8 @@
     <!-- Joy teleop 
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>-->
     
-    <!-- Control bringup -->
-    <node pkg="panther_gazebo" type= "robosim_driver_node" name="robosim_driver"/>
+    <!-- Control bringup 
+    <node pkg="panther_gazebo" type= "robosim_driver_node" name="robosim_driver"/>-->
     
     <!-- Lidar 
     <include file="$(find lidar)/lidar_launch/laser.launch"/>-->
