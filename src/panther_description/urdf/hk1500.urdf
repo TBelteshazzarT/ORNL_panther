@@ -185,13 +185,13 @@
           <parent link="base_footprint"/>
           <child link="base_link"/>
         </joint>
-	<joint name="fr_wheel_joint" type="fixed">
+	<joint name="fr_wheel_joint" type="continuous">
 		<parent link="base_link"/>
 		<child link="fr_wheel_link"/>
 		<axis xyz="0 0 1"/>
 		<origin xyz="0.356108 -0.269875 0.137" rpy="1.5708 0.0 0.0"/>
 	</joint>
-	<joint name="fl_wheel_joint" type="fixed">
+	<joint name="fl_wheel_joint" type="continuous">
 		<parent link="base_link"/>
 		<child link="fl_wheel_link"/>
 		<axis xyz="0 0 1"/>
@@ -212,13 +212,13 @@
 		<origin xyz="0.0 0.269875 0.137" rpy="-1.5708 0.0 0.0"/>
 	</joint>
 
-	<joint name="rr_wheel_joint" type="fixed">
+	<joint name="rr_wheel_joint" type="continuous">
 		<parent link="base_link"/>
 		<child link="rr_wheel_link"/>
 		<axis xyz="0 0 1"/>
 		<origin xyz="-0.356108 -0.269875 0.137" rpy="1.5708 0.0 0.0"/>
 	</joint>
-	<joint name="rl_wheel_joint" type="fixed">
+	<joint name="rl_wheel_joint" type="continuous">
 		<parent link="base_link"/>
 		<child link="rl_wheel_link"/>
 		<axis xyz="0 0 1"/>
@@ -308,6 +308,14 @@
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
+  
+  <!--gazebo>
+    <controller:gazebo_ros_controller_manager name="gazebo_ros_controller_manager" plugin="libgazebo_ros_controller_manager.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1000.0</updateRate>
+      <interface:audio name="gazebo_ros_controller_manager_dummy_iface" />
+    </controller:gazebo_ros_controller_manager>
+  </gazebo-->
 
   <!-- Base -->
   <gazebo reference="base_link">
@@ -364,28 +372,23 @@
   </gazebo>-->
 
 <!-- Skid Steer Plugin -->
-  <gazebo>
-    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-      <updateRate>40</updateRate>
-      <robotNamespace></robotNamespace>
-      <leftJoint>fl_wheel_joint</leftJoint>
-      <rightJoint>fr_wheel_joint</rightJoint>
-      <leftJoint>rl_wheel_joint</leftJoint>
-      <rightJoint>rr_wheel_joint</rightJoint>
-      <wheelSeparation>0.53975</wheelSeparation>
-      <wheelDiameter>0.3</wheelDiameter>
-      <robotBaseFrame>base_link</robotBaseFrame>
-      <torque>20</torque>
-      <topicName>cmd_vel</topicName>
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <covariance_x>0.0001</covariance_x>
-      <covariance_y>0.0001</covariance_y>
-      <covariance_yaw>0.01</covariance_yaw>
-      <broadcastTF>false</broadcastTF> 
-    </plugin>
-  </gazebo>
+ <gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace></robotNamespace>
+    <leftFrontJoint>fl_wheel_joint</leftFrontJoint>
+    <rightFrontJoint>fr_wheel_joint</rightFrontJoint>
+    <leftRearJoint>rl_wheel_joint</leftRearJoint>
+    <rightRearJoint>rr_wheel_joint</rightRearJoint>
+    <wheelSeparation>0.4</wheelSeparation>
+    <wheelDiameter>0.215</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>20</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryFrame>odom</odometryFrame>
+    <broadcastTF>True</broadcastTF>
+  </plugin>
+</gazebo>
 
   <!-- Lidar -->
   <gazebo reference="hokuyo_link">

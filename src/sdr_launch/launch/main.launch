@@ -8,6 +8,7 @@
 	</node>
     <!-- Frame bringup -->
     <include file="$(find sdr_frame)/launch/robot_description.launch"/>
+    <!-- node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" / -->
     <!-- Joy teleop -->
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>
     <!-- Control bringup -->
