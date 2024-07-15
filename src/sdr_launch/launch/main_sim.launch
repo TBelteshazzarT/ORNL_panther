@@ -6,6 +6,7 @@
 		<param name="dev" value="/dev/input/js0"/>
 		<param name="autorepeat_rate" value="20"/>
 	</node>-->
+    
     <!-- Frame bringup -->
     <include file="$(find sdr_frame)/launch/robot_description.launch"/>
     
@@ -16,9 +17,6 @@
     
     <!-- Control bringup 
     <node pkg="panther_gazebo" type= "robosim_driver_node" name="robosim_driver"/>-->
-    
-    <!-- Lidar 
-    <include file="$(find lidar)/lidar_launch/laser.launch"/>-->
 
     <!-- Odom Launch -->
     <include file="$(find panther_navigation)/launch/odometry.launch"/>
