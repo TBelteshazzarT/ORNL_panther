@@ -33,4 +33,6 @@
     <!-- Gazebo Launch -->
     <include file="$(find panther_gazebo)/launch/panther_sim.launch"/>
     
+    <!-- Teleop node launch -->
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" />
 </launch>

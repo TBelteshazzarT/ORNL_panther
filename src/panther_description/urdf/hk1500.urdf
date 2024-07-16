@@ -324,43 +324,43 @@
 
   <!-- Front Right Wheel -->
   <gazebo reference="fr_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <!--mu1>0.2</mu1>
+    <mu2>0.2</mu2-->
     <material>Gazebo/Black</material>
   </gazebo>
 
   <!-- Front Left Wheel -->
   <gazebo reference="fl_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <!--mu1>0.2</mu1>
+    <mu2>0.2</mu2-->
     <material>Gazebo/Black</material>
   </gazebo>
   
   <!-- Middle Right Wheel -->
   <gazebo reference="mr_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <!--mu1>0.2</mu1>
+    <mu2>0.2</mu2-->
     <material>Gazebo/Black</material>
   </gazebo>
 
 <!-- Middle Left Wheel -->
   <gazebo reference="ml_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <!--mu1>0.2</mu1>
+    <mu2>0.2</mu2-->
     <material>Gazebo/Black</material>
   </gazebo>
 
 <!-- Rear Right Wheel -->
   <gazebo reference="rr_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <!--mu1>0.2</mu1>
+    <mu2>0.2</mu2-->
     <material>Gazebo/Black</material>
   </gazebo>
 
 <!-- Rear Left Wheel -->
   <gazebo reference="rl_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <!--mu1>0.2</mu1>
+    <mu2>0.2</mu2-->
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -382,8 +382,8 @@
     <rightRearJoint>rr_wheel_joint</rightRearJoint>
     <wheelSeparation>0.4</wheelSeparation>
     <wheelDiameter>0.215</wheelDiameter>
-    <robotBaseFrame>base_link</robotBaseFrame>
-    <torque>20</torque>
+    <robotBaseFrame>base_footprint</robotBaseFrame>
+    <torque>1000</torque>
     <commandTopic>cmd_vel</commandTopic>
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>True</broadcastTF>
