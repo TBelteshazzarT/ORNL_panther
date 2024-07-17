@@ -1,4 +1,4 @@
-footprint: [[0.21, 0.22], [0.21, -0.22], [-0.21, -0.22], [-0.21, 0.22]]
+footprint: [[0.914, 0.53975], [0.914, 0.53975], [0.914, 0.53975], [0.914, 0.53975]]
 
 # http://wiki.ros.org/costmap_2d/hydro/staticmap
 static_layer:
@@ -35,5 +35,5 @@ obstacle_layer:
 
 # http://wiki.ros.org/costmap_2d/hydro/inflation
 inflation_layer:
-  inflation_radius: 0.4
+  inflation_radius: 0.54
   cost_scaling_factor: 30.0
