@@ -326,42 +326,65 @@
   <gazebo reference="fr_wheel_joint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Black</material>
+    <material>
+		<name>Gazebo/Black</name>
+		<ambient>0 0 0 0</ambient>
+	</material>
   </gazebo>
 
   <!-- Front Left Wheel -->
   <gazebo reference="fl_wheel_joint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Black</material>
+    <material>
+		<name>Gazebo/Black</name>
+		<ambient>0 0 0 0</ambient>
+	</material>
+	<ambient>0 0 0 0</ambient>
   </gazebo>
   
   <!-- Middle Right Wheel -->
   <gazebo reference="mr_wheel_joint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Black</material>
+    <material>
+		<name>Gazebo/Black</name>
+		<ambient>0 0 0 0</ambient>
+	</material>
+	<ambient>0 0 0 0</ambient>
   </gazebo>
 
 <!-- Middle Left Wheel -->
   <gazebo reference="ml_wheel_joint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Black</material>
+    <material>
+		<name>Gazebo/Black</name>
+		<ambient>0 0 0 0</ambient>
+	</material>
+	<ambient>0 0 0 0</ambient>
   </gazebo>
 
 <!-- Rear Right Wheel -->
   <gazebo reference="rr_wheel_joint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Black</material>
+    <material>
+		<name>Gazebo/Black</name>
+		<ambient>0 0 0 0</ambient>
+	</material>
+	<ambient>0 0 0 0</ambient>
   </gazebo>
 
 <!-- Rear Left Wheel -->
   <gazebo reference="rl_wheel_joint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Black</material>
+    <material>
+		<name>Gazebo/Black</name>
+		<ambient>0 0 0 0</ambient>
+	</material>
+	<ambient>0 0 0 0</ambient>
   </gazebo>
 
   <!-- camera_link 

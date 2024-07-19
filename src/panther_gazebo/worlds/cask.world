@@ -59,6 +59,7 @@
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Grey</name>
             </script>
+            <ambient>1 1 1 1</ambient>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -76,7 +77,7 @@
     </physics>
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
-      <background>0.7 0.7 0.7 1</background>
+      <background>0 0.7 1 1</background>
       <shadows>1</shadows>
     </scene>
     <wind/>
@@ -344,7 +345,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -445,7 +446,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.74 0.74 0.74 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -545,7 +546,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.73 0.73 0.73 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -648,7 +649,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -749,7 +750,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -849,7 +850,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -952,7 +953,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1053,7 +1054,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1153,7 +1154,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1256,7 +1257,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1357,7 +1358,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1457,7 +1458,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1560,7 +1561,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1661,7 +1662,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1761,7 +1762,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1864,7 +1865,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -1965,7 +1966,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2065,7 +2066,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2168,7 +2169,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2269,7 +2270,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2369,7 +2370,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2472,7 +2473,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2573,7 +2574,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2673,7 +2674,7 @@
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
             </shader>
-            <ambient>0.5 0.5 0.5 1</ambient>
+            <ambient>0.75 0.75 0.75 1</ambient>
             <diffuse>0.7 0.7 0.7 1</diffuse>
             <specular>0.01 0.01 0.01 1</specular>
             <emissive>0 0 0 1</emissive>
@@ -2778,7 +2779,10 @@
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Grey</name>
             </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
           <meta>
             <layer>0</layer>
@@ -2823,7 +2827,10 @@
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Grey</name>
             </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
           <meta>
             <layer>0</layer>
@@ -2868,7 +2875,10 @@
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Grey</name>
             </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
           <meta>
             <layer>0</layer>
@@ -2913,7 +2923,10 @@
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Grey</name>
             </script>
-            <ambient>1 1 1 1</ambient>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
           <meta>
             <layer>0</layer>
