@@ -6,7 +6,7 @@ static_layer:
   lethal_cost_threshold: 100
   map_topic: map
   first_map_only: false
-  subscribe_to_updates: false
+  subscribe_to_updates: true
   track_unknown_space: true
   use_maximum: false
   trinary_costmap: true

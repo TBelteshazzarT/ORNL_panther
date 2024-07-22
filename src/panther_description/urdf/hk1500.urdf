@@ -4,9 +4,9 @@
 	<!-- Link setup -->
 	<link name="fr_wheel_link">
 		<inertial>
-			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
-			<mass value="9"/>
-			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
+			<mass value="6"/>
+			<inertia ixx="0.047" ixy="0" ixz="0" iyy="0.047" iyz="0" izz="0.078" />
 		</inertial>
 
 		<visual>
@@ -28,11 +28,11 @@
 	</link>
 
 	<link name="mr_wheel_link">
-		<inertial>
-			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
-			<mass value="9"/>
+		<!--inertial>
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
+			<mass value="6"/>
 			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
-		</inertial>
+		</inertial-->
 
 		<visual>
 			<origin xyz="0.0 0 0" rpy="1.5708 0.0 0.0"/>
@@ -54,9 +54,9 @@
 
 	<link name="rr_wheel_link">
 		<inertial>
-			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
-			<mass value="9"/>
-			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
+			<mass value="6"/>
+			<inertia ixx="0.047" ixy="0" ixz="0" iyy="0.047" iyz="0" izz="0.078" />
 		</inertial>
 
 		<visual>
@@ -79,9 +79,9 @@
 
 	<link name="fl_wheel_link">
 		<inertial>
-			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
-			<mass value="9"/>
-			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
+			<mass value="6"/>
+			<inertia ixx="0.047" ixy="0" ixz="0" iyy="0.047" iyz="0" izz="0.078" />
 		</inertial>
 
 		<visual>
@@ -103,11 +103,11 @@
 	</link>
 
 	<link name="ml_wheel_link">
-		<inertial>
-			<origin xyz="0 0 0.05" rpy="1.5708 0 0" />
-			<mass value="9"/>
+		<!--inertial>
+			<origin xyz="0 0 0" rpy="1.5708 0 0" />
+			<mass value="6"/>
 			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
-		</inertial>
+		</inertial-->
 
 		<visual>
 			<origin xyz="0 0 0" rpy="-1.5708 0.0 0.0"/>
@@ -129,9 +129,9 @@
 
 	<link name="rl_wheel_link"> 
 		<inertial>
-			<origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
-			<mass value="9"/>
-			<inertia ixx="0.11" ixy="0" ixz="0" iyy="0.11" iyz="0" izz="0.15" />
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
+			<mass value="6"/>
+			<inertia ixx="0.047" ixy="0" ixz="0" iyy="0.047" iyz="0" izz="0.078" />
 		</inertial>
 
 		<visual>
@@ -154,13 +154,14 @@
 
 	<link name="base_link">
 		<inertial>
-			<origin xyz="0 0 0.287" rpy="0 0 0"/>
-			<mass value="83.31"/>
-			<inertia ixx="5.60" ixy="-0.11" ixz="0" iyy="9.65" iyz="0" izz="10.51" />
+			<origin xyz="0 0 0.293" rpy="0 0 0"/>
+			<mass value="55"/>
+			<inertia ixx="2.743" ixy="0" ixz="0" iyy="5.705" iyz="0" izz="6.801" />
+			<!--nertia ixx="7.315" ixy="0" ixz="0" iyy="10.276" iyz="0" izz="6.801" /-->
 		</inertial>
 
 		<visual>
-			<origin xyz="0 0 0.287"/>
+			<origin xyz="0 0 0.293"/>
 			<geometry>
 				<box size = "0.914 0.53975 0.312"/>
 			</geometry>
@@ -170,7 +171,7 @@
 		</visual>
 
 		<collision>
-			<origin xyz="0 0 0.287"/>
+			<origin xyz="0 0 0.293"/>
 			<geometry> 
 				<box size = "0.914 0.53975 0.312"/>
 			</geometry>
@@ -181,7 +182,7 @@
 	
 	<!-- Joint defines -->
     <joint name="base_joint" type="fixed">
-        <origin xyz="0 0 0.19783" rpy="0 0 0"/>
+        <origin xyz="0 0 0.293" rpy="0 0 0"/>
         <parent link="base_footprint"/>
         <child link="base_link"/>
     </joint>
@@ -324,8 +325,8 @@
 
   <!-- Front Right Wheel -->
   <gazebo reference="fr_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>0.5</mu1> <!-- 0.2 -->
+    <mu2>0.5</mu2>
     <material>
 		<name>Gazebo/Black</name>
 		<ambient>0 0 0 0</ambient>
@@ -334,8 +335,8 @@
 
   <!-- Front Left Wheel -->
   <gazebo reference="fl_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
     <material>
 		<name>Gazebo/Black</name>
 		<ambient>0 0 0 0</ambient>
@@ -345,8 +346,8 @@
   
   <!-- Middle Right Wheel -->
   <gazebo reference="mr_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
     <material>
 		<name>Gazebo/Black</name>
 		<ambient>0 0 0 0</ambient>
@@ -356,8 +357,8 @@
 
 <!-- Middle Left Wheel -->
   <gazebo reference="ml_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
     <material>
 		<name>Gazebo/Black</name>
 		<ambient>0 0 0 0</ambient>
@@ -367,8 +368,8 @@
 
 <!-- Rear Right Wheel -->
   <gazebo reference="rr_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
     <material>
 		<name>Gazebo/Black</name>
 		<ambient>0 0 0 0</ambient>
@@ -378,8 +379,8 @@
 
 <!-- Rear Left Wheel -->
   <gazebo reference="rl_wheel_joint">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
     <material>
 		<name>Gazebo/Black</name>
 		<ambient>0 0 0 0</ambient>
@@ -406,7 +407,7 @@
     <wheelSeparation>0.4</wheelSeparation>
     <wheelDiameter>0.215</wheelDiameter>
     <robotBaseFrame>base_footprint</robotBaseFrame>
-    <torque>500</torque>
+    <torque>100</torque>
     <commandTopic>cmd_vel</commandTopic>
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>True</broadcastTF>
