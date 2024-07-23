@@ -1,6 +1,6 @@
 # https://github.com/cra-ros-pkg/robot_localization/blob/kinetic-devel/params/ekf_template.yaml
 
-frequency: 30
+frequency: 100 #was 30
 sensor_timeout: 0.2
 two_d_mode: true
 transform_time_offset: 0.0

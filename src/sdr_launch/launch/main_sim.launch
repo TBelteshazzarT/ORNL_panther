@@ -8,7 +8,7 @@
 	</node>-->
     
     <!-- Frame bringup -->
-    <include file="$(find sdr_frame)/launch/robot_description.launch"/>
+    <include file="$(find sdr_frame)/launch/robot_description_sim.launch"/>
     
     <!-- Joy teleop 
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>-->

@@ -17,7 +17,7 @@
   </include>
 
   <!-- Find URDF -->
-  <param name="robot_description" textfile="$(find panther_description)/urdf/hk1500.urdf"/>
+  <param name="robot_description" textfile="$(find panther_description)/urdf/hk1500_sim.urdf"/>
 
   <!-- Spawn panther into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"

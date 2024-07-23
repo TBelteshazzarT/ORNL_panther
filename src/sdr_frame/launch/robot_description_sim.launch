@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+	
+	<arg name="file" default="hk1500_sim"/>
+	
+	<param name="robot_description" textfile="$(find panther_description)/urdf/hk1500_sim.urdf"/>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+</launch>
