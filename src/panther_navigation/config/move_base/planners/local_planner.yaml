@@ -2,13 +2,13 @@
 TrajectoryPlannerROS:
 
   # Robot configuration
-  acc_lim_x: 2.5 #leo was 0.5, default 2.5
-  acc_lim_theta: 6 #leo was 2, default 2.5
-  max_vel_x: 5 # was 0.5
-  min_vel_x: 0.5
-  max_vel_theta: 6 # was 0.5
-  min_vel_theta: -6 # was -0.5
-  min_in_place_vel_theta: -6 # was 0.4
+  acc_lim_x: 5 #leo was 0.5, default 2.5
+  acc_lim_theta: 5 #leo was 2, default 2.5
+  max_vel_x: 2 # was 0.5
+  min_vel_x: 0.6 # was 0.5
+  max_vel_theta: 2 # was 0.5
+  min_vel_theta: -2 # was -0.5
+  min_in_place_vel_theta: 2 # was 0.4
   escape_vel: -1 # was -0.1
   holonomic_robot: false
 
@@ -18,10 +18,10 @@ TrajectoryPlannerROS:
   latch_xy_goal_tolerance: false # was true
 
   # Forward simulation
-  sim_time: 3.0
+  sim_time: 6.0 # was 3.0
   sim_granularity: 0.05
   angular_sim_granularity: 0.025 # was 0.025
-  vx_samples: 3
+  vx_samples: 10
   vtheta_samples: 20 # was 20
 
   # Trajectory scoring
