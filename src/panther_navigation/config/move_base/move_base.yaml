@@ -16,5 +16,5 @@ base_local_planner: base_local_planner/TrajectoryPlannerROS
 
 # Recovery behavior parameters
 recovery_behavior_enabled: true
-clearing_rotation_allowed: true # was true, false good for debugging local planner
+clearing_rotation_allowed: false # was true, false good for debugging local planner
 conservative_reset_dist: 2.0
