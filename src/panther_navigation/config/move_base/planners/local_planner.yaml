@@ -8,13 +8,13 @@ TrajectoryPlannerROS:
   min_vel_x: 0.6 # was 0.5
   max_vel_theta: 1 # was 0.5
   min_vel_theta: -1 # was -0.5
-  min_in_place_vel_theta: 1 # was 0.4
+  min_in_place_vel_theta: -0.5 # was 0.4
   escape_vel: -1 # was -0.1
   holonomic_robot: false
 
   # Goal tolerance
   yaw_goal_tolerance: 6.3 # was 0.1
-  xy_goal_tolerance: 0.2  # was 0.2
+  xy_goal_tolerance: 0.75  # was 0.2
   latch_xy_goal_tolerance: false # was true
 
   # Forward simulation
