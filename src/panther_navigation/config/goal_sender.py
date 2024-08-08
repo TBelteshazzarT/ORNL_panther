@@ -31,10 +31,31 @@ def move_to_goal(x, y, theta):
     client.wait_for_result()
     return client.get_result()
 
+def rotate_in_place(x, y, theta):
+    client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+    client.wait_for_server()
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = x
+    goal.target_pose.pose.position.y = y
+    theta += 1.5708
+    for x in range(3):
+        quaternion = tft.quaternion_from_euler(0, 0, theta)
+        goal.target_pose.pose.orientation.x = quaternion[0]
+        goal.target_pose.pose.orientation.y = quaternion[1]
+        goal.target_pose.pose.orientation.z = quaternion[2]
+        goal.target_pose.pose.orientation.w = quaternion[3]
+        client.send_goal(goal)
+        client.wait_for_result()
+        theta += 1.5708
+        time.sleep(0.5)
+    return client.get_result()
+
 
 
 if __name__ == '__main__':
-
+    rospy.init_node('goal_sender')
     cask_x = 4
     cask_y = 2
     x = -10.9728
@@ -45,24 +66,21 @@ if __name__ == '__main__':
     loc = Pose()
     home_x = loc.position.x
     home_y = loc.position.y
+    theta = 0.785398
     
     while i <= cask_x:
         temp = -temp
-        rospy.init_node('goal_sender')
-        result = move_to_goal(x, y, 180)
-        time.sleep(3)
+        result = move_to_goal(x, y, theta)
+        rotate_in_place(x, y, theta)
         while j < cask_y:
             y = y + (5*temp)
-            rospy.init_node('goal_sender')
-            result = move_to_goal(x, y, 1)
-            time.sleep(3)
+            result = move_to_goal(x, y, theta)
+            rotate_in_place(x, y, theta)
             j = j + 1
         j = 0
         x = x + 5.4864
         i = i+1
-
-    rospy.init_node('goal_sender')
-    home = move_to_goal(-12, 0, 1)
+    home = move_to_goal(-12, 0, 0.1)
         
 
     if result:

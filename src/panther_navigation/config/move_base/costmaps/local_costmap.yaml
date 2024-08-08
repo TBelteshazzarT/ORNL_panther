@@ -3,8 +3,8 @@ local_costmap:
   global_frame: map
   robot_base_frame: base_footprint
   transform_tolerance: 0.5
-  update_frequency: 0.5
-  publish_frequency: 0.5
+  update_frequency: 2
+  publish_frequency: 2
   rolling_window: true
   always_send_full_costmap: true #was false
 
