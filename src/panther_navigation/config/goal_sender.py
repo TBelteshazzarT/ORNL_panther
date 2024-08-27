@@ -6,7 +6,6 @@ import time
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Quaternion, Pose
 import tf.transformations as tft
-import tf
 
 def move_to_goal(x, y, theta):
     client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
@@ -71,10 +70,12 @@ if __name__ == '__main__':
     while i <= cask_x:
         temp = -temp
         result = move_to_goal(x, y, theta)
+        time.sleep(0.5)
         rotate_in_place(x, y, theta)
         while j < cask_y:
             y = y + (5*temp)
             result = move_to_goal(x, y, theta)
+            time.sleep(0.5)
             rotate_in_place(x, y, theta)
             j = j + 1
         j = 0

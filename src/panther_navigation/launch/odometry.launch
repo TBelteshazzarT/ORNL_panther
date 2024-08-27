@@ -8,8 +8,9 @@
     <rosparam command="load"
       file="$(find panther_navigation)/config/imu_filter_node.yaml" />
   </node>
+
+<!-- ekf node in progress -->
 <!--
-  <node name="ekf_localization_node"
     pkg="robot_localization"
     type="ekf_localization_node"
     clear_params="true">
@@ -20,5 +21,6 @@
       command="load"
       file="$(find panther_navigation)/config/ekf_localization_node/ekf_3d.yaml" />
   </node>
--->
+  -->
+  
 </launch>

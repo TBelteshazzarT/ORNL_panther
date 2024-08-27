@@ -8,9 +8,9 @@ global_costmap:
   rolling_window: false
   always_send_full_costmap: true #was false
 
-  resolution: 0.01 #was 0.05
-  width: 40
-  height: 40
+  resolution: 0.1 
+  width: 20
+  height: 20
   origin_x: -20.0
   origin_y: -20.0
 

@@ -2,10 +2,10 @@
 
 # ROS wrapper parameters
 throttle_scans: 1
-base_frame: base_footprint
+base_frame: base_footprint #default base_link
 odom_frame: odom
 map_frame: map
-map_update_interval: 0.01 # was 5.0
+map_update_interval: 5
 transform_publish_period: 0.05
 
 # Laser parameters
@@ -35,11 +35,11 @@ lasamplerange: 0.005
 lasamplestep: 0.005
 
 # Other parameters
-linearUpdate: 0.1
-angularUpdate: 0.1
+linearUpdate: 1.0 #was 0.1, default 1.0
+angularUpdate: 0.5 #was 0.1, default 0.5
 temporalUpdate: -1.0
 resampleThreshold: 0.5
-particles: 10
+particles: 30 #was 10, default 30
 
 # Initial map dimensions and resolution
 xmin: -20.0
