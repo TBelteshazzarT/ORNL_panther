@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <include file="$(find panther_navigation)/launch/twist_mux.launch" />
+  <include file="$(find panther_navigation)/launch/move_base.launch" />
+
+  <!-- Goal Sender Node -->
+    <node pkg="panther_smach" type="goal_sender.py" name="goal_sender" />
+
+  <!-- thermal camera publisher -->
+    <node pkg="panther_smach" type="thermal_camera_publisher.py" name="thermal_camera_publisher" />
+
+  <!-- RQT Visual of the Camera -->
+  <node pkg = "rqt_image_view" type ="rqt_image_view" name="rqt_image_view" />
+
+
+</launch>

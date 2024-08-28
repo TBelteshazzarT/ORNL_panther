@@ -12,6 +12,4 @@ install(
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(PROGRAMS src/panther_navigation/config/goal_sender.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+
