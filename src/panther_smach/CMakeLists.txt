@@ -27,7 +27,7 @@ install(
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(PROGRAMS src/panther_smach/src/goal_sender.py
+install(PROGRAMS src/panther_smach/scripts/goal_sender.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
