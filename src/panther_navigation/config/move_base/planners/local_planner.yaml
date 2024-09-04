@@ -2,14 +2,14 @@
 TrajectoryPlannerROS:
 
   # Robot configuration
-  acc_lim_x: 2 #leo was 0.5,
-  acc_lim_theta: 3.2 #leo was 2, 
-  max_vel_x: 0.5
-  min_vel_x: 0.1 
-  max_vel_theta: 1 # was 0.5 #1.2
-  min_vel_theta: -1 # was -0.5
-  min_in_place_vel_theta: 0.4
-  escape_vel: -0.1 # was -0.1
+  acc_lim_x: 6 #leo was 0.5,
+  acc_lim_theta: 6 #leo was 2, 
+  max_vel_x: 2
+  min_vel_x: 0.5 
+  max_vel_theta: 1.2 # was 0.5 #1.2
+  min_vel_theta: -1.2 # was -0.5
+  min_in_place_vel_theta: 0.6
+  escape_vel: -1 # was -0.1
   holonomic_robot: false
 
   # Goal tolerance
