@@ -6,12 +6,15 @@
     This package provides the PantherRover navigation by following the LeoRover navigation package.
   </description>
 
-  <maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
+  <maintainer email="belteshazzarboyd@gmail.com">Daniel Boyd</maintainer>
   <author email="blazej@fictionlab.pl">Błażej Sowa</author>
 
   <license>MIT</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
   <exec_depend>robot_localization</exec_depend>
   <exec_depend>imu_filter_madgwick</exec_depend>
   <exec_depend>slam_gmapping</exec_depend>
@@ -19,7 +22,9 @@
   <exec_depend>amcl</exec_depend>
   <exec_depend>move_base</exec_depend>
   <exec_depend>global_planner</exec_depend>
-  <exec_depend>twist_mux</exec_depend>
+  <exec_depend>roslaunch</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
   <exec_depend>gmapping</exec_depend>
 
 </package>
