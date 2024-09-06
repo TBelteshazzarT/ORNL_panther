@@ -6,6 +6,7 @@ import rospy
 import tf.transformations as tft
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import actionlib
+from std_msgs.msg import Bool
 
 goal = MoveBaseGoal()
 
@@ -21,6 +22,14 @@ class Trav_sm(smach.State):
     
     def execute(self, userdata):
         rospy.loginfo('Executing state Trav_sm')
+
+        #pause test
+        rospy.loginfo('Testing nav pause')
+        pub = rospy.Publisher('/pause_navigation', Bool, queue_size=1)
+        pub.publish(True)
+        rospy.sleep(20)
+        pub.publish(False)
+
 
         # Create a SMACH state machine
         sm = smach.StateMachine(outcomes=['complete'])

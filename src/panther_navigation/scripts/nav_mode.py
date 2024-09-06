@@ -4,9 +4,8 @@ import rospy
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Bool
 
-msg_nav = Twist()
-msg_joy = Twist()
-msg_bool = False
+
+bool_recieved = False
 
 class Nav_mode:
     def __init__(self):
@@ -38,17 +37,22 @@ class Nav_mode:
 
         #running main through callback    
         msg = Twist()
+        global bool_recieved
         
-        if self.msg_bool.data:
-            msg = self.msg_joy
-        else:
+        if not bool_recieved:
             msg = self.msg_nav
+        elif not self.msg_bool.data:
+            msg = self.msg_nav
+        else:
+            msg = self.msg_joy
         self.pub_vel(msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z)
 
     def callback_joy(self,data):
         self.msg_joy = data
 
     def callback_bool(self,data):
+        global bool_recieved
+        bool_recieved = True
         self.msg_bool = data
         
 
