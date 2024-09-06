@@ -8,7 +8,7 @@ msg_nav = Twist()
 msg_joy = Twist()
 msg_bool = False
 
-class nav_mode:
+class Nav_mode:
     def __init__(self):
         # Ros publisher
         self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
@@ -36,11 +36,6 @@ class nav_mode:
     def callback_nav(self,data):
         self.msg_nav = data
 
-    def callback_joy(self,data):
-        self.msg_joy = data
-
-    def callback_bool(self,data):
-        self.msg_bool = data
         #running main through callback    
         msg = Twist()
         
@@ -50,12 +45,19 @@ class nav_mode:
             msg = self.msg_nav
         self.pub_vel(msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z)
 
+    def callback_joy(self,data):
+        self.msg_joy = data
+
+    def callback_bool(self,data):
+        self.msg_bool = data
+        
+
 
     
 if __name__ == '__main__':
     
     rospy.init_node('nav_mode')
-    nav_mode()
+    Nav_mode()
     try:
         rospy.spin()
         
