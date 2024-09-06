@@ -30,7 +30,9 @@ class Trav_sm(smach.State):
             for location in range(len(self.location_array)):
             
                 # Add substates to the container
-                smach.StateMachine.add(f'main_drive_{location}', main_nav(self.location_array[location], self.move_base_client), transitions={'succeeded':'complete', 'aborted':'manual_override'})
+                smach.StateMachine.add(f'main_nav_{location}', main_nav(self.location_array[location], self.move_base_client), transitions={'3':f'record_temp_{location}', '4':'manual_override'})
+                smach.StateMachine.add(f'record_temp_{location}', record_temp(), transitions={'recorded':f'main_nav_{location+1}' if location+1 < len(self.location_array) else 'complete'})
+
             smach.StateMachine.add('manual_override', manual_override(), transitions={'sub_complete':'complete'})
 
         # Sub-execute SMACH plan
@@ -44,7 +46,7 @@ class Trav_sm(smach.State):
 # define substate main_nav    
 class main_nav(smach.State):
     def __init__(self, location, move_base_client):
-        smach.State.__init__(self, outcomes=['succeeded', 'aborted'])
+        smach.State.__init__(self, outcomes=['3', '4'])
         self.x = location[0]
         self.y = location[1]
         self.theta = location[2]
@@ -67,9 +69,20 @@ class main_nav(smach.State):
 
         self.move_base_client.wait_for_server()
         self.move_base_client.send_goal(goal)
+        self.move_base_client.wait_for_result()
 
         state = self.move_base_client.get_state()
-        return state
+        state_str = str(state)
+        return state_str
+    
+#record temp
+class record_temp(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['recorded'])
+
+    def execute(self, userdata):
+        rospy.loginfo('Recording Temperature')
+        return 'recorded'
 
 # define substate manual_override
 #daniel
@@ -81,5 +94,3 @@ class manual_override(smach.State):
         rospy.loginfo('Executing manual_override substate')
         return 'sub_complete'
     
-
-
