@@ -23,12 +23,12 @@ class Trav_sm(smach.State):
     def execute(self, userdata):
         rospy.loginfo('Executing state Trav_sm')
 
-        #pause test
+        '''pause test
         rospy.loginfo('Testing nav pause')
         pub = rospy.Publisher('/pause_navigation', Bool, queue_size=1)
         pub.publish(True)
         rospy.sleep(20)
-        pub.publish(False)
+        pub.publish(False)'''
 
 
         # Create a SMACH state machine
