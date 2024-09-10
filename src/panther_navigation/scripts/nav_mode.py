@@ -43,8 +43,10 @@ class Nav_mode:
             msg = self.msg_nav
         elif not self.msg_bool.data:
             msg = self.msg_nav
-        else:
+        elif self.msg_bool.data:
             msg = self.msg_joy
+        else:
+            msg = Twist()
         self.pub_vel(msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z)
 
     def callback_joy(self,data):

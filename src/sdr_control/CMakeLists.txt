@@ -7,6 +7,8 @@ find_package(catkin REQUIRED COMPONENTS
   roslaunch
   nav_msgs
   roscpp
+  rospy
+  std_msgs
   sensor_msgs
   tf
   message_generation
@@ -133,4 +135,8 @@ install(DIRECTORY launch config
 install(DIRECTORY srv/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/srv
   FILES_MATCHING PATTERN "*.srv"
+)
+
+install(PROGRAMS src/sdr_control/scripts/test_mode.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
