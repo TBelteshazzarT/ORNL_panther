@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find sdr_launch)/launch/main_sim.launch"/>
+	
+	<node pkg="sdr_control" type="test_mode.py" name="test_mode_enable">
+	</node>
+
+    
+</launch>
