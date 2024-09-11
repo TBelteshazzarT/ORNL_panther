@@ -84,7 +84,7 @@ void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pos
 	// Set header
 	odom.header.stamp = t;
 	odom.header.frame_id = "map";
-	odom.child_frame_id = "base_link";
+	odom.child_frame_id = "base_footprint";
 	// Set position
 	odom.pose.pose.position.x = pose[0];
 	odom.pose.pose.position.y = pose[1];
@@ -330,7 +330,7 @@ int main(int argc, char** argv)
 		geometry_msgs::TransformStamped odom_trans;
 		odom_trans.header.stamp = ros::Time::now();
 		odom_trans.header.frame_id = "odom";
-		odom_trans.child_frame_id = "base_link";
+		odom_trans.child_frame_id = "base_footprint";
 		// Set TF position
 		odom_trans.transform.translation.x = pose[0];
 		odom_trans.transform.translation.y = pose[1];

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     
-    <!--arg name="joy_vel_topic" default="joy_vel"/>
+    <!--arg name="joy_vel_topic" default="joy_vel"/-->
     
     <node pkg="sdr_control" type="test_mode.py" name="test_mode_enable">
     </node>
