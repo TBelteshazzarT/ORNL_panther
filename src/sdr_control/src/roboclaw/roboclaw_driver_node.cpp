@@ -83,7 +83,7 @@ void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pos
 	
 	// Set header
 	odom.header.stamp = t;
-	odom.header.frame_id = "map";
+	odom.header.frame_id = "odom";
 	odom.child_frame_id = "base_footprint";
 	// Set position
 	odom.pose.pose.position.x = pose[0];
@@ -103,8 +103,11 @@ void publish_odometry(ros::Publisher odom_pub, ENC_PULSE<int> speed, double* pos
 		odom.pose.covariance[i] = p.pose_covariance;
 		odom.twist.covariance[i] = p.twist_covariance;
 	}
-	// Publish to topic
+	// Publish to TF
 	odom_pub.publish(odom);
+
+	// Publish to topic
+	
 }
 
 void publish_joints(ros::Publisher joints_pub, ENC_PULSE<int> qpps, ENC_PULSE<float>& rot, double dt, PARAMS p, ros::Time t)
@@ -298,7 +301,7 @@ int main(int argc, char** argv)
 	diagnosticSub = n.subscribe<diagnostic_msgs::DiagnosticStatus>("/overheat_status",10,&diagnosticCallback);
 	// ROS Publishers
 	ros::Publisher odomPub, jointPub, battPub, currentPub;
-	odomPub = n.advertise<nav_msgs::Odometry>("wheel_odom", 10);
+	odomPub = n.advertise<nav_msgs::Odometry>("/odom", 50);
 	jointPub = n.advertise<sensor_msgs::JointState>("/joint_states", 10);
 	battPub = n.advertise<sensor_msgs::BatteryState>("/battery", 10);
 	currentPub = n.advertise<geometry_msgs::Vector3Stamped>("motor_current", 10);
@@ -316,8 +319,10 @@ int main(int argc, char** argv)
 	float error_timeout = 0;
 	ENC_PULSE<int> qpps_current;
 	ENC_PULSE<float> wheel_rot;
-	ros::Time prev_stamp = ros::Time::now();
-	ros::Time time_current = ros::Time::now();
+	
+	ros::Time current_time, last_time;
+	current_time = ros::Time::now();
+	last_time = ros::Time::now();
 	
 	
 	// Main Loop
@@ -328,7 +333,7 @@ int main(int argc, char** argv)
 		// Set TF header
 		geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw (pose[2]) ;
 		geometry_msgs::TransformStamped odom_trans;
-		odom_trans.header.stamp = ros::Time::now();
+		odom_trans.header.stamp = current_time;
 		odom_trans.header.frame_id = "odom";
 		odom_trans.child_frame_id = "base_footprint";
 		// Set TF position
@@ -341,15 +346,15 @@ int main(int argc, char** argv)
 		odom_broadcaster.sendTransform(odom_trans);
 		ROS_WARN("odom broadcast initialized?");
 		
-		dt = (ros::Time::now() - prev_stamp).toSec();
-		prev_stamp = ros::Time::now();
+		dt = (current_time - last_time).toSec();
+		last_time = ros::Time::now();
 
 		// check_heat_status(rc, p);
 		cmd_motors(rc, p, qpps_current, error_timeout, dt);
-		if(poll_encoders(rc, qpps_current, p, time_current))
+		if(poll_encoders(rc, qpps_current, p, current_time))
 		{
-			publish_joints(jointPub, qpps_current, wheel_rot, dt, p, time_current);
-			publish_odometry(odomPub, qpps_current, pose, dt, p, time_current, odom_broadcaster);
+			publish_joints(jointPub, qpps_current, wheel_rot, dt, p, current_time);
+			publish_odometry(odomPub, qpps_current, pose, dt, p, current_time, odom_broadcaster);
 		
 		}
 		else { ROS_WARN("Invalid encoder read"); }

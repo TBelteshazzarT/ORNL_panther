@@ -5,6 +5,8 @@
 	
 	<node pkg="sdr_control" type="test_mode.py" name="test_mode_enable">
 	</node>
+	
+	<node pkg="panther_navigation" type="velocity_logger.py" name="vel_logger"/>
 
     
 </launch>
