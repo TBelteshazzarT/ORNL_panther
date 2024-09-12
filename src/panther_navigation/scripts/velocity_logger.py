@@ -4,7 +4,14 @@ import rospy
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 from nav_msgs.msg import Odometry
+import csv
+import os
 
+fields = ['Linear Velocity (CMD)','Angular Velocity (CMD)', 'Linear Velocity Measured', 'Angular Velocity Measured']
+first = True
+
+def home():
+    return os.path.expanduser("~")
 
 class Vel_logger:
     def __init__(self):
@@ -13,15 +20,20 @@ class Vel_logger:
         # Ros subscribers
         rospy.Subscriber('/cmd_vel', Twist, self.callback_cmd)
         rospy.Subscriber('/odom', Odometry, self.callback_odom)
-        with open('vel_log.txt', 'w') as self.f:
+        with open(str(home()) + '/vel_log.csv', 'w') as f:
+            self.csvwriter = csv.writer(f)
             rospy.spin()
    
 
     def write_to_txt(self, linearx_cmd, angularz_cmd, linearx_measured, angularz_measured):
-        
-        data = {'linearx_cmd': linearx_cmd, 'angularz_cmd': angularz_cmd, 'linearx_measured': linearx_measured, 'angularz_measured': angularz_measured}
-        self.f.write(str(data))
-        self.pub.publish(str(data))
+        global first
+        if first == True:
+            self.csvwriter.writerow(fields)
+            first = False
+        else:
+            data = [linearx_cmd, linearx_measured, angularz_measured, angularz_measured]
+            self.csvwriter.writerow(data)
+            self.pub.publish(str(data))
 
     def callback_cmd(self,data):
         self.msg_cmd = data
