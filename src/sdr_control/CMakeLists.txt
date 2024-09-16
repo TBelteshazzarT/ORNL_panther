@@ -137,6 +137,4 @@ install(DIRECTORY srv/
   FILES_MATCHING PATTERN "*.srv"
 )
 
-install(PROGRAMS src/sdr_control/scripts/test_mode.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+
