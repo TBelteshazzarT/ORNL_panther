@@ -2,7 +2,7 @@
 
 import rospy
 from geometry_msgs.msg import Twist
-from std_msgs.msg import String
+from std_msgs.msg import Float64
 from nav_msgs.msg import Odometry
 import csv
 import os
@@ -16,7 +16,10 @@ def home():
 class Vel_logger:
     def __init__(self):
         # Ros publishers
-        self.pub = rospy.Publisher('/vel_log', String, queue_size=10)
+        self.linear_cmd = rospy.Publisher('/linear_cmd', Float64, queue_size=10)
+        self.angular_cmd = rospy.Publisher('/angular_cmd', Float64, queue_size=10)
+        self.linear_mes = rospy.Publisher('/linear_mes', Float64, queue_size=10)
+        self.angular_mes = rospy.Publisher('/angular_mes', Float64, queue_size=10)
         # Ros subscribers
         rospy.Subscriber('/cmd_vel', Twist, self.callback_cmd)
         rospy.Subscriber('/odom', Odometry, self.callback_odom)
@@ -33,7 +36,7 @@ class Vel_logger:
         else:
             data = [linearx_cmd, linearx_measured, angularz_measured, angularz_measured]
             self.csvwriter.writerow(data)
-            self.pub.publish(str(data))
+            self.publishers(data)
 
     def callback_cmd(self,data):
         self.msg_cmd = data
@@ -53,6 +56,11 @@ class Vel_logger:
     def callback_odom(self,data):
         self.odom = data
         
+    def publishers(self, data):
+        self.linear_cmd.publish(data[0])
+        self.angular_cmd.publish(data[1])
+        self.linear_mes.publish(data[2])
+        self.angular_mes.publish(data[3])
 
     
 if __name__ == '__main__':
