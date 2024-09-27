@@ -44,20 +44,20 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-#add_library(velocity_switch
-#  src/vel_switch/velocity_switch.cpp
-#)
+add_library(velocity_switch
+  src/vel_switch/velocity_switch.cpp
+)
 
 # Vel mux build
-#add_executable(vel_switch_node src/vel_switch/vel_switch_node.cpp)
+add_executable(vel_switch_node src/vel_switch/vel_switch_node.cpp)
 
-#target_link_libraries(vel_switch_node
-#  velocity_switch
-#  ${catkin_LIBRARIES}
-#  ${Boost_LIBRARIES}
-#)
+target_link_libraries(vel_switch_node
+  velocity_switch
+  ${catkin_LIBRARIES}
+  ${Boost_LIBRARIES}
+)
 
-#add_dependencies(vel_switch_node sdr_control_generate_messages_cpp)
+add_dependencies(vel_switch_node sdr_control_generate_messages_cpp)
 
 add_library(rosIOHelper
   src/rosIOHelper.cpp
@@ -118,7 +118,7 @@ target_link_libraries(roboclaw_driver_node
 
 # Install
 #install(TARGETS roboteq_driver_node rosIOHelper dimension_interface roboteq_interface roboclaw_driver_node roboclaw_interface vel_switch_node <- removed last target 7/1/24
-install(TARGETS roboteq_driver_node rosIOHelper dimension_interface roboteq_interface roboclaw_driver_node roboclaw_interface
+install(TARGETS roboteq_driver_node rosIOHelper dimension_interface roboteq_interface roboclaw_driver_node roboclaw_interface vel_switch_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

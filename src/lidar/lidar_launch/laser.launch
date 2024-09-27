@@ -1,6 +1,6 @@
 <launch>
-  <node name="urg_node" pkg="urg_node" type="urg_node" args="192.168.0.10" output="log">
-    <param name="ip_address" value="192.168.0.10"/>
+  <node name="urg_node" pkg="urg_node" type="urg_node" args="192.168.5.30" output="log">
+    <param name="ip_address" value="192.168.5.30"/>
     <param name="frame_id" value="laser_frame"/>
     <param name="calibrate_time" value="true"/>
   </node>

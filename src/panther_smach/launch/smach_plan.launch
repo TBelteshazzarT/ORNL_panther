@@ -8,8 +8,8 @@
   <!-- Goal Sender Node -->
     <!--node pkg="panther_smach" type="goal_sender.py" name="goal_sender" /-->
 
-  <!-- main smach launch -->
-  <node pkg="panther_smach" type="main.py" name="main" />
+  <!-- main smach launch >
+  <node pkg="panther_smach" type="main.py" name="main" />-->
 
   <!-- thermal camera publisher -->
     <!--node pkg="panther_smach" type="thermal_camera_publisher.py" name="thermal_camera_publisher" /-->

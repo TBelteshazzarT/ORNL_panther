@@ -343,8 +343,8 @@ int main(int argc, char** argv)
 		odom_trans.transform.rotation = odom_quat;
 	
 		// Publish to TF
-		odom_broadcaster.sendTransform(odom_trans);
-		ROS_WARN("odom broadcast initialized?");
+		//odom_broadcaster.sendTransform(odom_trans);
+		//ROS_WARN("odom broadcast initialized?");
 		
 		dt = (current_time - last_time).toSec();
 		last_time = ros::Time::now();

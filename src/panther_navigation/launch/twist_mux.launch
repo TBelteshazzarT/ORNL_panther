@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 
 <launch>
-  <!-- Nav mode -->
-    <node pkg="panther_navigation" type="nav_mode.py" name="nav_mode" />
+  <!-- Nav mode >
+    <node pkg="panther_navigation" type="nav_mode.py" name="nav_mode" />-->
 
-  <!--arg name="cmd_vel_out" default="cmd_vel" />
+  <arg name="cmd_vel_out" default="cmd_vel" />
    <node name="twist_mux"
     pkg="twist_mux"
     type="twist_mux">
@@ -13,7 +13,7 @@
       file="$(find panther_navigation)/config/twist_mux/topics.yaml" />
     <rosparam command="load"
       file="$(find panther_navigation)/config/twist_mux/locks.yaml" />
-  </node-->
+  </node>
 
   
 </launch>

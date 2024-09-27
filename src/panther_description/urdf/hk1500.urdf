@@ -154,14 +154,14 @@
 
 	<link name="base_link">
 		<inertial>
-			<origin xyz="0 0 0.293" rpy="0 0 0"/>
+			<origin xyz="0 0 0.295" rpy="0 0 0"/>
 			<mass value="55"/>
 			<inertia ixx="2.743" ixy="0" ixz="0" iyy="5.705" iyz="0" izz="6.801" />
 			<!--nertia ixx="7.315" ixy="0" ixz="0" iyy="10.276" iyz="0" izz="6.801" /-->
 		</inertial>
 
 		<visual>
-			<origin xyz="0 0 0.293"/>
+			<origin xyz="0 0 0.295"/>
 			<geometry>
 				<box size = "0.914 0.53975 0.312"/>
 			</geometry>
@@ -171,7 +171,7 @@
 		</visual>
 
 		<collision>
-			<origin xyz="0 0 0.293"/>
+			<origin xyz="0 0 0.295"/>
 			<geometry> 
 				<box size = "0.914 0.53975 0.312"/>
 			</geometry>
@@ -182,44 +182,44 @@
 	
 	<!-- Joint defines -->
     <joint name="base_joint" type="fixed">
-        <origin xyz="0 0 0.293" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <parent link="base_footprint"/>
         <child link="base_link"/>
     </joint>
-	<joint name="fr_wheel_joint" type="continuous">
+	<joint name="fr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="fr_wheel_link"/>
 		<axis xyz="0 1 0"/>
 		<origin xyz="0.356108 -0.323875 0.137" />
 	</joint>
-	<joint name="fl_wheel_joint" type="continuous">
+	<joint name="fl_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="fl_wheel_link"/>
 		<axis xyz="0 1 0"/>
 		<origin xyz="0.356108 0.323875 0.137" />
 	</joint>
 
-	<joint name="mr_wheel_joint" type="fixed">
+	<joint name="mr_wheel_joint" type="continuous">
 		<parent link="base_link"/>
 		<child link="mr_wheel_link"/>
 		<axis xyz="0 1 0"/>
 		<origin xyz="0.0 -0.323875 0.137" />
 	</joint>
 
-	<joint name="ml_wheel_joint" type="fixed">
+	<joint name="ml_wheel_joint" type="continuous">
 		<parent link="base_link"/>
 		<child link="ml_wheel_link"/>
 		<axis xyz="0 1 0"/>
 		<origin xyz="0.0 0.323875 0.137" />
 	</joint>
 
-	<joint name="rr_wheel_joint" type="continuous">
+	<joint name="rr_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="rr_wheel_link"/>
 		<axis xyz="0 1 0"/>
 		<origin xyz="-0.356108 -0.323875 0.137" />
 	</joint>
-	<joint name="rl_wheel_joint" type="continuous">
+	<joint name="rl_wheel_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="rl_wheel_link"/>
 		<axis xyz="0 1 0"/>
@@ -275,7 +275,7 @@
   	</joint>
   	
   	<!-- IMU -->
-	<link name="imu_link"> 
+	<link name="imu"> 
     	<visual>
       		<origin xyz="0 0 0.003"/>
       		<geometry>
@@ -296,9 +296,7 @@
 	<joint name="imu_joint" type="fixed">
     		<origin xyz="0 0 0.449"/>
     		<parent link="base_link"/>
-    		<child link="imu_link"/>
+    		<child link="imu"/>
   	</joint>
-	
-
 
 </robot>

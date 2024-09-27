@@ -9,9 +9,9 @@
         <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     </node>
 
-    <!--group if="$(arg enable_switch)"
+    <group if="$(arg enable_switch)">
         <node pkg="sdr_control" type="vel_switch_node" name="vel_switch" output="screen">
             <param name="first_state" value="joy_vel"/>
         </node>
-    </group>-->
+    </group>
 </launch>
