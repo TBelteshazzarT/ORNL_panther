@@ -4,6 +4,7 @@ import rospy
 import smach
 from dock_sm import Undock, Dock
 from trav_sm import Trav_sm
+import roslaunch
 
 
 #main
@@ -45,6 +46,16 @@ def main():
 
     # Execute SMACH plan
     outcome = sm.execute()
+    rospy.on_shutdown(shutdown_tasks)
+    
+def shutdown_tasks():
+	node = roslaunch.core.Node('map_server','map_saver')
+	launch = roslaunch.scriptapi.ROSLaunch()
+	launch.start()
+	process = launch.launch(node)
+	print(process.is_alive())
+	process.stop()
+	
 
 if __name__ == '__main__':
     try:
