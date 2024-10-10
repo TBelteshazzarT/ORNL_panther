@@ -21,12 +21,11 @@
     <!-- Odom Launch -->
     <include file="$(find panther_navigation)/launch/odometry.launch"/>
 
-    <!-- AMCL Launch >
-    <include file="$(find panther_navigation)/launch/amcl.launch" /-->
+    <!-- AMCL Launch -->
+    <include file="$(find panther_navigation)/launch/amcl.launch" />
     
-    <!-- Slam Launch -->
-    <include file="$(find panther_navigation)/launch/gmapping.launch"/>
-    
+    <!-- Slam Launch 
+    <include file="$(find panther_navigation)/launch/gmapping.launch"/>-->
     <!-- Nav Launch 
     <include file="$(find panther_navigation)/launch/navigation.launch"/>-->
     

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- ekf node in progress -->
+  
+  <node
+    pkg="robot_localization"
+    type="ekf_localization_node"
+    name="ekf_localization_node"
+    clear_params="true">
+    <rosparam unless="$(arg three_d)"
+      command="load"
+      file="$(find panther_navigation)/config/ekf_localization_node/ekf_2d.yaml" />
+    <rosparam if="$(arg three_d)"
+      command="load"
+      file="$(find panther_navigation)/config/ekf_localization_node/ekf_3d.yaml" />
+  </node>
+</launch>

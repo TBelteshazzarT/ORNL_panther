@@ -20,6 +20,9 @@
     <!-- Odom Launch -->
     <include file="$(find panther_navigation)/launch/odometry.launch"/>
     
+    <!-- EKF Localization Launch -->
+    <include file="$(find panther_navigation)/launch/ekf_localization.launch"/>
+    
     <!-- Slam Launch -->
     <include file="$(find panther_navigation)/launch/gmapping.launch"/>
     
