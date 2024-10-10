@@ -2,7 +2,7 @@
 
 <launch>
 
-  <include file="$(find panther_navigation)/launch/twist_mux.launch" />
+  <!--include file="$(find panther_navigation)/launch/twist_mux.launch" /-->
   <include file="$(find panther_navigation)/launch/move_base.launch" />
 
   <!-- Goal Sender Node -->
@@ -17,5 +17,7 @@
   <!-- RQT Visual of the Camera -->
   <!--node pkg = "rqt_image_view" type ="rqt_image_view" name="rqt_image_view" /-->
 
-
+  <!-- camera picture launch -->
+  <node pkg="panther_smach" type="camera_picture.py" name="camera_picture"/>
+  
 </launch>

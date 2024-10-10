@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- ekf node in progress -->
-  
+  <!-- ekf node -->
+  <arg name="three_d" default="false" />
   <node
     pkg="robot_localization"
     type="ekf_localization_node"
