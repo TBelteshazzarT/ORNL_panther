@@ -14,9 +14,6 @@
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>-->
     
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-    
-    <!-- Control bringup 
-    <node pkg="panther_gazebo" type= "robosim_driver_node" name="robosim_driver"/>-->
 
     <!-- Odom Launch -->
     <include file="$(find panther_navigation)/launch/odometry.launch"/>
@@ -26,8 +23,6 @@
     
     <!-- Slam Launch 
     <include file="$(find panther_navigation)/launch/gmapping.launch"/>-->
-    <!-- Nav Launch 
-    <include file="$(find panther_navigation)/launch/navigation.launch"/>-->
     
     <!-- SMACH Launch -->
     <include file="$(find panther_smach)/launch/smach_plan.launch"/>
