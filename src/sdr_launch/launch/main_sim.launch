@@ -14,15 +14,15 @@
     <include file="$(find sdr_control)/launch/joy_teleop.launch"/>-->
     
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-
-    <!-- Odom Launch -->
-    <include file="$(find panther_navigation)/launch/odometry.launch"/>
-
-    <!-- AMCL Launch -->
-    <include file="$(find panther_navigation)/launch/amcl.launch" />
     
-    <!-- Slam Launch 
-    <include file="$(find panther_navigation)/launch/gmapping.launch"/>-->
+    <!-- Twist Mux -->
+    <include file="$(find panther_navigation)/launch/twist_mux.launch"/>
+
+    <!-- AMCL Launch -
+    <include file="$(find panther_navigation)/launch/amcl.launch" /-->
+    
+    <!-- Slam Launch -->
+    <include file="$(find panther_navigation)/launch/gmapping.launch"/>
     
     <!-- SMACH Launch -->
     <include file="$(find panther_smach)/launch/smach_plan.launch"/>
