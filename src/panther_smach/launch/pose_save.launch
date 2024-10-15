@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Pose -->
+  <node name='robot_pose_publisher' pkg='robot_pose_publisher' type='robot_pose_publisher'/>
+
+  <!-- Pose saver node -->
+    <node pkg="panther_smach" type="pose_save.py" name="pose_save" />
+     
+</launch>

@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   smach
   geometry_msgs
   message_generation
+  message_runtime
 )
 
 find_package(Boost REQUIRED COMPONENTS system)
@@ -25,6 +26,10 @@ add_service_files(
   PoseSave.srv
 )
 
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}

@@ -26,6 +26,9 @@
     
     <!-- SMACH Launch -->
     <include file="$(find panther_smach)/launch/smach_plan.launch"/>
+    
+    <!-- Pose Saver -->
+    <include file="$(find panther_smach)/launch/pose_save.launch"/>
 
     <!-- RViz Launch -->
     <node pkg="rviz" type= "rviz" name="rviz" args="-d $(find sdr_launch)/config/rviz_default.rviz" />
