@@ -13,16 +13,23 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   smach
   geometry_msgs
+  message_generation
 )
 
 find_package(Boost REQUIRED COMPONENTS system)
+
 add_service_files(
   DIRECTORY
   srv
   FILES
-  SwitchVelocity.srv
+  PoseSave.srv
 )
 
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
+)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES panther_smach
