@@ -18,11 +18,11 @@
     <!-- Twist Mux -->
     <include file="$(find panther_navigation)/launch/twist_mux.launch"/>
 
-    <!-- AMCL Launch -
-    <include file="$(find panther_navigation)/launch/amcl.launch" /-->
+    <!-- AMCL Launch -->
+    <include file="$(find panther_navigation)/launch/amcl.launch" />
     
-    <!-- Slam Launch -->
-    <include file="$(find panther_navigation)/launch/gmapping.launch"/>
+    <!-- Slam Launch 
+    <include file="$(find panther_navigation)/launch/gmapping.launch"/>-->
     
     <!-- SMACH Launch -->
     <include file="$(find panther_smach)/launch/smach_plan.launch"/>

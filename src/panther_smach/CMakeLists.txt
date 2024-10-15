@@ -12,6 +12,15 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   smach
+  geometry_msgs
+)
+
+find_package(Boost REQUIRED COMPONENTS system)
+add_service_files(
+  DIRECTORY
+  srv
+  FILES
+  SwitchVelocity.srv
 )
 
 catkin_package(
@@ -31,4 +40,8 @@ install(PROGRAMS src/panther_smach/scripts/goal_sender.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+install(DIRECTORY srv/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/srv
+  FILES_MATCHING PATTERN "*.srv"
+)
 
