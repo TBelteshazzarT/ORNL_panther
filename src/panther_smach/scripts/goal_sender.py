@@ -20,6 +20,7 @@ def move_to_goal(x, y, theta):
 
     #not exactly working at the moment
     quaternion = tft.quaternion_from_euler(0, 0, theta)
+    euler = tft.euler_from_qu  
     
     goal.target_pose.pose.orientation.x = quaternion[0]
     goal.target_pose.pose.orientation.y = quaternion[1]

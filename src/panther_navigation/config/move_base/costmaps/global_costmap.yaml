@@ -2,9 +2,9 @@
 global_costmap:
   global_frame: map
   robot_base_frame: base_footprint
-  transform_tolerance: 0.5
-  update_frequency: 2
-  publish_frequency: 2
+  transform_tolerance: 0.2 #was 0.5
+  update_frequency: 1 #was 1
+  publish_frequency: 1 #was 1, really just the visual aspect does not need to be published for move base to read
   rolling_window: false
   always_send_full_costmap: true #was false
 

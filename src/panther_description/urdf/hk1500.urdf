@@ -275,7 +275,7 @@
   	</joint>
   	
   	<!-- IMU -->
-	<link name="imu"> 
+	<link name="imu_link"> 
     	<visual>
       		<origin xyz="0 0 0.003"/>
       		<geometry>
@@ -296,7 +296,7 @@
 	<joint name="imu_joint" type="fixed">
     		<origin xyz="0 0 0.449"/>
     		<parent link="base_link"/>
-    		<child link="imu"/>
+    		<child link="imu_link"/>
   	</joint>
 
 </robot>

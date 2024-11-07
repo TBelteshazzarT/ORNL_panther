@@ -7,6 +7,7 @@ import tf.transformations as tft
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import actionlib
 from std_msgs.msg import Bool
+import camera_picture
 
 goal = MoveBaseGoal()
 
@@ -56,9 +57,12 @@ class Trav_sm(smach.State):
 class main_nav(smach.State):
     def __init__(self, location, move_base_client):
         smach.State.__init__(self, outcomes=['3', '4'])
-        self.x = location[0]
-        self.y = location[1]
-        self.theta = location[2]
+        self.x = float(location[0])
+        self.y = float(location[1])
+        self.quaternion_x = float(location[2])
+        self.quaternion_y = float(location[3])
+        self.quaternion_z = float(location[4])
+        self.quaternion_w = float(location[5])
         self.move_base_client = move_base_client
 
     def execute(self, userdata):
@@ -69,12 +73,12 @@ class main_nav(smach.State):
         goal.target_pose.pose.position.y = self.y
 
         
-        quaternion = tft.quaternion_from_euler(0, 0, self.theta)
+        # quaternion = tft.quaternion_from_euler(0, 0, self.theta)
     
-        goal.target_pose.pose.orientation.x = quaternion[0]
-        goal.target_pose.pose.orientation.y = quaternion[1]
-        goal.target_pose.pose.orientation.z = quaternion[2]
-        goal.target_pose.pose.orientation.w = quaternion[3]
+        goal.target_pose.pose.orientation.x = self.quaternion_x
+        goal.target_pose.pose.orientation.y = self.quaternion_y
+        goal.target_pose.pose.orientation.z = self.quaternion_z
+        goal.target_pose.pose.orientation.w = self.quaternion_w
 
         self.move_base_client.wait_for_server()
         self.move_base_client.send_goal(goal)
@@ -90,6 +94,7 @@ class record_temp(smach.State):
         smach.State.__init__(self, outcomes=['recorded'])
 
     def execute(self, userdata):
+        camera_picture.camera_pic()
         rospy.loginfo('Recording Temperature')
         return 'recorded'
 

@@ -5,34 +5,18 @@ import smach
 from dock_sm import Undock, Dock
 from trav_sm import Trav_sm
 import roslaunch
+import csv
+import os
 
+def home():
+    return os.path.expanduser("~")
 
 #main
 def main():
     rospy.init_node('smach_plan')
-    cask_x = 4
-    cask_y = 2
-    x = -10.9728
-    y = -5
-    i=0
-    j=0
-    k =0
-    temp = -1
-    theta = 0.785398
-    location_array = []
-    
-    while i <= cask_x:
-        temp = -temp
-        location_array.append([x, y, theta])
-        k += 1
-        while j < cask_y:
-            y = y + (5*temp)
-            location_array.append([x, y, theta])
-            j = j + 1
-            k+= 1
-        j = 0
-        x = x + 5.4864
-        i = i+1
+    with open(str(home()) + '/panther_ws/src/panther_smach/saved_route/route.csv', 'r') as f:
+        csv_reader = csv.reader(f)
+        location_array = [row for row in csv_reader]       
 
     # Create a SMACH state machine
     sm = smach.StateMachine(outcomes=['undocking_error', 'travel_error', 'docking_error', 'loop_complete'])

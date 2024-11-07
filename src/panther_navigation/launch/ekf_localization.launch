@@ -14,4 +14,7 @@
       command="load"
       file="$(find panther_navigation)/config/ekf_localization_node/ekf_3d.yaml" />
   </node>
+
+  <node pkg="panther_navigation" type="quaternion-to-euler.py" name="quaternion_to_euler" />
+
 </launch>

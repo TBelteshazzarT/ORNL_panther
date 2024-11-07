@@ -10,8 +10,8 @@
       file="$(find panther_navigation)/config/imu_filter_node.yaml" />
   </node>
 
-    <rosparam command="load" file="$(find witmotion_ros)/config/config.yml" />
-    <node name="witmotion_imu" pkg="witmotion_ros"  type="witmotion_ros_node" output="screen"/>
+    <!--rosparam command="load" file="$(find witmotion_ros)/config/config.yml" />
+    <node name="witmotion_imu" pkg="witmotion_ros"  type="witmotion_ros_node" output="screen"/-->
 
   
 </launch>

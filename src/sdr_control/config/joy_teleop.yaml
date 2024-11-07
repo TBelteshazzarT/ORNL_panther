@@ -41,9 +41,4 @@ teleop:
       switch_to: nav_vel
     buttons: [1]
     
-  pose_save:
-    type: service
-    service_name: /pose_save
-    service_request:
-      save: 'msg_not_important'
-    buttons: [2]
+

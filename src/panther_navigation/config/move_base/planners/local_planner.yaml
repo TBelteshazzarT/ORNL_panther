@@ -2,19 +2,19 @@
 TrajectoryPlannerROS:
 
   # Robot configuration
-  acc_lim_x: 6 #leo was 0.5,
-  acc_lim_theta: 6 #leo was 2, 
-  max_vel_x: 2
-  min_vel_x: 0.5 
-  max_vel_theta: 1.2 # was 0.5 #1.2
-  min_vel_theta: -1.2 # was -0.5
-  min_in_place_vel_theta: 0.6
-  escape_vel: -1 # was -0.1
+  acc_lim_x: 4 #was 6, for testing lowered to 0.5
+  acc_lim_theta: 4  #was 6, for testing lowered to 0.5 
+  max_vel_x: 0.75 #was 2, moved down for testing
+  min_vel_x: 0.4 #was 0.5, moved down for testing 
+  max_vel_theta: 0.75 # was 0.5 #1.2
+  min_vel_theta: -0.75  # was -0.5
+  min_in_place_vel_theta: 0.1 #was 0.6, moved down for testing
+  escape_vel: -0.5 #was 1, moved down for testing
   holonomic_robot: false
 
   # Goal tolerance
   yaw_goal_tolerance: 0.1 # was 0.1
-  xy_goal_tolerance: 0.46  # was 0.2
+  xy_goal_tolerance: 0.3  # was 0.2, 0.46
   latch_xy_goal_tolerance: true # was true
 
   # Forward simulation

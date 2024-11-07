@@ -9,6 +9,12 @@ from sensor_msgs.msg import Joy
 last_button = 0
 
 def camera_pic():
+    global i, date
+    now = datetime.now()
+    date = str(now.strftime("%m-%d-%Y"))
+    if not os.path.exists(f"/home/ornl-rov/panther_test_images/test-{date}"):
+        os.makedirs(f"/home/ornl-rov/panther_test_images/test-{date}")  
+    os.chdir(f"/home/ornl-rov/panther_test_images/test-{date}")
     cap_v = cv2.VideoCapture('rtsp://admin:ORNL_123@192.168.5.250:554/stream1')
     cap_v.set(cv2.CAP_PROP_BUFFERSIZE, 0)
     while True:
@@ -42,13 +48,11 @@ def joy_callback(msg):
     last_button = msg.buttons[3]
 
 if __name__ == '__main__':
-    now = datetime.now()
-    date = str(now.strftime("%m-%d-%Y"))
-    i = 1
-    while os.path.exists(f"/home/ornl-rov/panther_test_images/test-{date}-{i}"):
-        i += 1
-    os.makedirs(f"/home/ornl-rov/panther_test_images/test-{date}-{i}")  
-    os.chdir(f"/home/ornl-rov/panther_test_images/test-{date}-{i}")
+    #now = datetime.now()
+    #date = str(now.strftime("%m-%d-%Y"))
+    #i = 1
+    #while  os.path.exists(f"/home/ornl-rov/panther_test_images/test-{date}"):
+        #i += 1
     rospy.init_node('camera_picture')
     rospy.Subscriber("/joy", Joy, joy_callback)
     rospy.spin()
