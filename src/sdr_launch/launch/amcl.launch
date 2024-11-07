@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- AMCL Launch -->
+    <include file="$(find panther_navigation)/launch/amcl.launch" />
+ 
+</launch>
