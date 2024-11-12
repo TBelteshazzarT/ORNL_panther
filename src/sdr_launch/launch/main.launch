@@ -31,7 +31,11 @@
 
     <!-- xsens launch -->
     <include file="/home/ornl-rov/panther_ws/src/xsens_ros_mti_driver/launch/xsens_mti_node.launch"/>
-    
+
+    <!-- SLAM launch-->
+    <!-- just added this to run network launch, we can take out later-->
+    <include file="$(find sdr_launch)/launch/slam.launch"/>
+
     <!-- RViz Launch -->
     <!--node pkg="rviz" type= "rviz" name="rviz" args="-d $(find sdr_launch)/config/rviz_default.rviz" /-->
     <!--include file="$(find panther_visuals)/launch/rviz.launch"/-->
