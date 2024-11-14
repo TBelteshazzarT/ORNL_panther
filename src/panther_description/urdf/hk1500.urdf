@@ -299,4 +299,29 @@
     		<child link="imu_link"/>
   	</joint>
 
+	<!-- GPS -->
+	<link name="gps"> 
+    	<visual>
+      		<origin xyz="0 0 0.003"/>
+      		<geometry>
+        		<box size="0.079 0.05 0.006"/>
+      		</geometry>
+      		<material name="gps">
+        		<color rgba="0.5 0.5 0 1.0"/>
+      		</material>
+    	</visual>
+		<collision>
+      		<origin xyz="0 0 0.003"/>
+      		<geometry>
+        		<box size="0.079 0.05 0.006"/>
+      		</geometry>
+    	</collision>
+	</link>
+
+	<joint name="gps_joint" type="fixed">
+    		<origin xyz="0 0 0.449"/>
+    		<parent link="base_link"/>
+    		<child link="gps"/>
+  	</joint>
+
 </robot>

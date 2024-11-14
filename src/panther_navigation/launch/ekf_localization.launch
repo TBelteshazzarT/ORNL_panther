@@ -2,6 +2,7 @@
 <launch>
   <!-- ekf node -->
   <arg name="three_d" default="false" />
+  
   <node
     pkg="robot_localization"
     type="ekf_localization_node"
@@ -13,6 +14,30 @@
     <rosparam if="$(arg three_d)"
       command="load"
       file="$(find panther_navigation)/config/ekf_localization_node/ekf_3d.yaml" />
+  </node>
+  
+  <!-- dual ekf navsat launch >
+  <node
+    pkg="robot_localization"
+    type="ekf_localization_node"
+    name="ekf_localization_node"
+    clear_params="true">
+    <rosparam unless="$(arg three_d)"
+      command="load"
+      file="$(find panther_navigation)/config/ekf_localization_node/dual_ekf_navsat.yaml" />
+    <rosparam if="$(arg three_d)"
+      command="load"
+      file="$(find panther_navigation)/config/ekf_localization_node/ekf_3d.yaml" />
+  </node-->
+
+  <node
+    pkg="robot_localization"
+    type="navsat_transform_node"
+    name="navsat_transform"
+    clear_params="true">
+    <rosparam 
+      command="load"
+      file="$(find panther_navigation)/config/ekf_localization_node/navsat_transform.yaml" />
   </node>
 
   <!--node pkg="panther_navigation" type="quaternion-to-euler.py" name="quaternion_to_euler" /-->
