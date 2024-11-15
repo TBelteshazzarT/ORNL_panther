@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <launch>
-  
-  <arg name="map_file" default="$(find map_server)/map/map.yaml" />
+
+  <arg name="map_file" value="/home/daniel/panther_ws/src/map_server/map/SimMap.yaml" ></arg>
   <node pkg="map_server" type="map_server" name="map_server_load" args="$(arg map_file)" />
 
   <node name="amcl"
@@ -11,5 +11,5 @@
     clear_params="true">
     <rosparam command="load" file="$(find panther_navigation)/config/amcl.yaml" />
   </node>
-  
+
 </launch>
