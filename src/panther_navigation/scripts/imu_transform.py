@@ -25,12 +25,12 @@ def imu_callback(msg):
     Rzx = 2*x*z+2*y*w
     Rzy = 2*y*z-2*x*w
     Rzz = 1-2*x**2-2*y**2
-    r = np.array([[Rxx, Rxy, Rxz],[Ryx, Ryy, Ryz],[Rzx, Rzy, Rzz]])
-    inverse_r = np.linalg.inv(r)
+    r = np.array([[Rxx, Ryx, Rzx],[Rxy, Ryy, Rzy],[Rxz, Ryz, Rzz]])
+    #inverse_r = np.linalg.inv(r)
     
     #accel
     accel_vector = np.array([msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z])
-    accel_sensor = np.dot(inverse_r, accel_vector)
+    accel_sensor = np.dot(r, accel_vector)
     new_msg.linear_acceleration.x = accel_sensor[0]
     new_msg.linear_acceleration.y = accel_sensor[1]
     new_msg.linear_acceleration.z = accel_sensor[2]

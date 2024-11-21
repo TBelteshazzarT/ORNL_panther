@@ -6,7 +6,7 @@ static_layer:
   lethal_cost_threshold: 100
   map_topic: map
   first_map_only: false
-  subscribe_to_updates: true
+  subscribe_to_updates: true #default false
   track_unknown_space: true
   use_maximum: false
   trinary_costmap: true
@@ -14,7 +14,7 @@ static_layer:
 # http://wiki.ros.org/costmap_2d/hydro/obstacles
 obstacle_layer:
   max_obstacle_height: 2
-  obstacle_range: 2.5 # default 2.5
+  obstacle_range: 5  # default 2.5
   raytrace_range: 3.0 #default 3.0
   track_unknown_space: false
   footprint_clearing_enabled: true
@@ -35,5 +35,5 @@ obstacle_layer:
 
 # http://wiki.ros.org/costmap_2d/hydro/inflation
 inflation_layer:
-  inflation_radius: 0.6 # was 0.54
-  cost_scaling_factor: 2.58 # was 30
+  inflation_radius: 0.1 # was 0.54
+  cost_scaling_factor: 10  # was 2.58

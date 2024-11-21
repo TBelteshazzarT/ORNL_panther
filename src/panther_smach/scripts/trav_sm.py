@@ -22,7 +22,7 @@ class Trav_sm(smach.State):
         self.move_base_client.wait_for_server()
     
     def execute(self, userdata):
-        rospy.loginfo('Executing state Trav_sm')
+        rospy.logwarn('Executing state Trav_sm')
 
         '''pause test
         rospy.loginfo('Testing nav pause')
@@ -66,7 +66,7 @@ class main_nav(smach.State):
         self.move_base_client = move_base_client
 
     def execute(self, userdata):
-        rospy.loginfo('Executing main_nav substate')
+        rospy.logwarn('Executing main_nav substate')
         goal.target_pose.header.frame_id = "map"
         goal.target_pose.header.stamp = rospy.Time.now()
         goal.target_pose.pose.position.x = self.x
@@ -79,12 +79,16 @@ class main_nav(smach.State):
         goal.target_pose.pose.orientation.y = self.quaternion_y
         goal.target_pose.pose.orientation.z = self.quaternion_z
         goal.target_pose.pose.orientation.w = self.quaternion_w
-
+        rospy.logwarn(f"Going to pose x={self.x}, y={self.y}, [{self.quaternion_x}, {self.quaternion_y}, {self.quaternion_z}, {self.quaternion_w}]")
+        rospy.logwarn("waiting for move_base server")
         self.move_base_client.wait_for_server()
+        rospy.logwarn("sending goal")
         self.move_base_client.send_goal(goal)
+        rospy.logwarn("waiting for result ...")
         self.move_base_client.wait_for_result()
 
         state = self.move_base_client.get_state()
+        rospy.logwarn(f"current move base state: {state}")
         state_str = str(state)
         return state_str
     
@@ -94,8 +98,8 @@ class record_temp(smach.State):
         smach.State.__init__(self, outcomes=['recorded'])
 
     def execute(self, userdata):
+        rospy.logwarn('Recording Temperature')
         camera_picture.camera_pic()
-        rospy.loginfo('Recording Temperature')
         return 'recorded'
 
 # define substate manual_override

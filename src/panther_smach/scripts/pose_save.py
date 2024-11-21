@@ -29,12 +29,12 @@ def pose_callback(data):
     global saved_coords, save_bool
 
     if save_bool:
-        x = float(data.position.x)
-        y = float(data.position.y)
-        quat_x = float(data.orientation.x)
-        quat_y = float(data.orientation.y)
-        quat_z = float(data.orientation.z)
-        quat_w = float(data.orientation.w)
+        x = float(round(data.position.x,2))
+        y = float(round(data.position.y,2))
+        quat_x = float(round(data.orientation.x,2))
+        quat_y = float(round(data.orientation.y,2))
+        quat_z = float(round(data.orientation.z,2))
+        quat_w = float(round(data.orientation.w,2))
         rospy.logwarn(f"Saving location x = {x:.2f}, y = {y:.2f}, and quaternion = [{quat_x:.2f}, {quat_y:.2f}, {quat_z:.2f}, {quat_w:.2f}].")
         saved_coords.append([x,y,quat_x, quat_y, quat_z, quat_w])
     save_bool = False

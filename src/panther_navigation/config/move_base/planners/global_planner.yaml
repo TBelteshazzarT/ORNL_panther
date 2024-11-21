@@ -8,8 +8,8 @@ GlobalPlanner:
   use_grid_path: false
   old_navfn_behavior: false
   lethal_cost: 253
-  neutral_cost: 66
-  cost_factor: 0.55
+  neutral_cost: 50 #was 66, reset to default (50)
+  cost_factor: 3  # was 0.55, reset to default (3)
   publish_potential: true
   orientation_mode: 0
   orientation_window_size: 1
